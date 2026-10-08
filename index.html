@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>ITT Dashboard · Карітас</title>
+   <script src="https://cdn.tailwindcss.com"></script>
+   <style>
+      :root {
+         --caritas-blue: #0083CB;
+         --caritas-yellow: #FECC40;
+         --itt-red: #c00000;
+         --col1: 320px;
+         --col2: 230px;
+      }
+
+      .hidden {
+         display: none !important;
+      }
+
+      body {
+         font-family: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+      }
+
+      /* ---------- Таблиця у стилі Excel ITT ---------- */
+      #table-wrap {
+         max-height: calc(100vh - 250px);
+         overflow: auto;
+      }
+
+      table.itt {
+         border-collapse: separate;
+         border-spacing: 0;
+         border-top: 1px solid #000;
+         border-left: 1px solid #000;
+      }
+
+      table.itt th,
+      table.itt td {
+         border-right: 1px solid #000;
+         border-bottom: 1px solid #000;
+         padding: 5px 9px;
+         font-size: 13px;
+      }
+
+      table.itt thead th {
+         position: sticky;
+         top: 0;
+         z-index: 3;
+      }
+
+      .sticky1 {
+         position: sticky;
+         left: 0;
+         z-index: 2;
+         width: var(--col1);
+         min-width: var(--col1);
+         max-width: var(--col1);
+      }
+
+      .sticky2 {
+         position: sticky;
+         left: var(--col1);
+         z-index: 2;
+         width: var(--col2);
+         min-width: var(--col2);
+         max-width: var(--col2);
+      }
+
+      thead th.sticky1,
+      thead th.sticky2 {
+         z-index: 4;
+      }
+
+      .bg-itt-red {
+         background-color: var(--itt-red);
+         color: #fff;
+         font-weight: bold;
+         text-align: center;
+         vertical-align: middle;
+      }
+
+      .bg-itt-gray {
+         background-color: #bfbfbf;
+         font-weight: bold;
+      }
+
+      .bg-itt-white {
+         background-color: #fff;
+      }
+
+      .bg-itt-header-light {
+         background-color: #fce4d6;
+         font-weight: bold;
+         text-align: center;
+      }
+
+      .bg-itt-header-green {
+         background-color: #e2efda;
+         font-weight: bold;
+         text-align: center;
+      }
+
+      .bg-itt-month {
+         background-color: var(--itt-red);
+         color: #fff;
+         font-weight: bold;
+         text-align: center;
+         cursor: pointer;
+         min-width: 82px;
+         user-select: none;
+      }
+
+      .bg-itt-month:hover {
+         background-color: #900000;
+      }
+
+      .bg-itt-yeartotal {
+         background-color: #7f0000;
+         color: #fff;
+         font-weight: bold;
+         text-align: center;
+         cursor: pointer;
+         min-width: 90px;
+      }
+
+      .bg-itt-soon {
+         background-color: #f3f4f6;
+         color: #6b7280;
+         font-style: italic;
+         text-align: center;
+      }
+
+      .tc {
+         text-align: center;
+      }
+
+      td.num {
+         text-align: center;
+         cursor: cell;
+         user-select: none;
+      }
+
+      td.num.zero {
+         color: #b0b0b0;
+      }
+
+      td.num.gray.zero {
+         color: #6b6b6b;
+      }
+
+      td.num.ytotal {
+         background-color: #fff2cc;
+         font-weight: bold;
+      }
+
+      td.num.selected {
+         background-color: #cfe2ff !important;
+         box-shadow: inset 0 0 0 2px #0d6efd;
+         color: #000 !important;
+      }
+
+      th.selected-col {
+         background-color: #0d6efd !important;
+      }
+
+      tr:hover td.num:not(.selected) {
+         filter: brightness(0.96);
+      }
+
+      .chip {
+         display: inline-flex;
+         align-items: center;
+         gap: 6px;
+      }
+
+      .btn {
+         display: inline-flex;
+         align-items: center;
+         gap: 6px;
+         padding: 7px 12px;
+         border-radius: 8px;
+         font-size: 13px;
+         font-weight: 600;
+         border: 1px solid #d1d5db;
+         background: #fff;
+         transition: background .15s;
+         white-space: nowrap;
+      }
+
+      .btn:hover {
+         background: #f3f4f6;
+      }
+
+      .btn-primary {
+         background: var(--caritas-blue);
+         color: #fff;
+         border-color: var(--caritas-blue);
+      }
+
+      .btn-primary:hover {
+         background: #006da9;
+      }
+
+      .btn-warn {
+         border-color: #f59e0b;
+         color: #92400e;
+         background: #fffbeb;
+      }
+
+      .btn-warn:hover {
+         background: #fef3c7;
+      }
+
+      .modal-bg {
+         background: rgba(15, 23, 42, .55);
+      }
+   </style>
+</head>
+
+<body class="bg-gray-100 text-gray-900 pb-20">
+
+   <!-- ===== Шапка ===== -->
+   <header class="text-white" style="background: var(--caritas-blue);">
+      <div class="px-6 py-3 flex flex-wrap items-center gap-x-6 gap-y-2">
+         <div class="flex items-center gap-3">
+            <div>
+               <div class="text-lg font-bold leading-tight">ITT Звіт - C4U4</div>
+               <div class="text-xs opacity-80 leading-tight">Карітас України</div>
+            </div>
+         </div>
+         <div id="meta-line" class="text-xs opacity-90 ml-auto"></div>
+      </div>
+   </header>
+
+   <main class="px-6 pt-4">
+
+      <!-- ===== Панель інструментів ===== -->
+      <div class="bg-white rounded-xl shadow p-3 mb-3 flex flex-wrap items-center gap-3">
+         <label class="chip text-sm font-semibold">Рік
+            <select id="year-select" class="border rounded-md px-2 py-1 text-sm"></select>
+         </label>
+         <label id="location-wrap" class="chip text-sm font-semibold hidden">Локація
+            <select id="location-select" class="border rounded-md px-2 py-1 text-sm"></select>
+         </label>
+         <input id="search" type="search" placeholder="🔍 Пошук індикатора (напр. 1.3 або legal)"
+            class="border rounded-md px-3 py-1.5 text-sm w-72">
+         <label class="chip text-sm"><input id="opt-total" type="checkbox"> Колонка «Разом за рік»</label>
+         <label class="chip text-sm"><input id="opt-compact" type="checkbox"> Лише рядки Total</label>
+
+         <div class="ml-auto flex flex-wrap gap-2">
+            <button id="btn-check" class="btn" title="Що не потрапило у звіт і чому">🩺 Перевірка даних</button>
+            <button id="btn-copy" class="btn" title="Скопіювати всю таблицю для вставки в ITT.xlsx">📋 Копіювати
+               таблицю</button>
+            <button id="btn-xls" class="btn">⬇️ Excel</button>
+            <button id="btn-refresh" class="btn btn-primary">⟳ Оновити дані</button>
+         </div>
+      </div>
+
+      <!-- ===== Короткі підсумки ===== -->
+      <div id="kpis" class="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-3"></div>
+
+      <div id="loading" class="text-blue-700 font-semibold mb-3 bg-blue-100 p-4 rounded-lg">
+         ⏳ Завантаження та обробка масиву даних… <span id="load-timer">0</span> с
+      </div>
+
+      <div class="bg-white shadow-xl rounded-xl p-2">
+         <div id="table-wrap">
+            <table id="dashboard-table" class="itt hidden">
+               <thead id="dashboard-head"></thead>
+               <tbody id="dashboard-body"></tbody>
+            </table>
+         </div>
+      </div>
+
+      <p class="text-xs text-gray-500 mt-2">
+         💡 Тягни мишкою — виділення прямокутником · <b>Shift</b>+клік — розширити · <b>Ctrl/⌘</b>+клік — додати
+         клітинку · клік по місяцю — увесь стовпець · <b>Ctrl/⌘+C</b> — копіювати виділене · <b>подвійний клік</b> по
+         числу — хто саме порахований · <b>Esc</b> — зняти виділення
+      </p>
+   </main>
+
+   <!-- ===== Панель статистики (як у Google Sheets) ===== -->
+   <div id="sheets-statusbar"
+      class="fixed bottom-4 right-4 bg-gray-900 text-white px-4 py-2 rounded-lg shadow-2xl text-xs font-mono flex gap-4 items-center opacity-0 transition-opacity duration-200 pointer-events-none z-50">
+      <div>Сума: <span id="stat-sum" class="font-bold text-green-400">0</span></div>
+      <div>Кількість: <span id="stat-count" class="font-bold text-blue-400">0</span></div>
+      <div>Середня: <span id="stat-avg" class="font-bold text-yellow-400">0</span></div>
+      <div>Мін: <span id="stat-min" class="font-bold text-gray-300">0</span></div>
+      <div>Макс: <span id="stat-max" class="font-bold text-gray-300">0</span></div>
+   </div>
+
+   <!-- ===== Тост ===== -->
+   <div id="toast"
+      class="fixed bottom-4 left-1/2 -translate-x-1/2 bg-green-600 text-white px-4 py-2 rounded-lg shadow-xl text-sm opacity-0 transition-opacity duration-200 pointer-events-none z-50">
+   </div>
+
+   <!-- ===== Модальне вікно ===== -->
+   <div id="modal" class="fixed inset-0 modal-bg hidden z-[60] flex items-center justify-center p-4">
+      <div class="bg-white rounded-xl shadow-2xl w-full max-w-3xl max-h-[85vh] flex flex-col">
+         <div class="flex items-start gap-3 p-4 border-b">
+            <div id="modal-title" class="font-bold text-base flex-1"></div>
+            <button id="modal-close" class="text-gray-500 hover:text-black text-xl leading-none">✕</button>
+         </div>
+         <div id="modal-body" class="p-4 overflow-auto text-sm"></div>
+      </div>
+   </div>
+
+   <script>
+      /* =====================================================================
+         НАЛАШТУВАННЯ
+         ===================================================================== */
+      const CONFIG = {
+         API_URL: 'https://script.google.com/macros/s/AKfycbyqyfJXwztH7Jh9dlv-Xv9GJugwtoYsewVcjnGbQlsUxPFQBkYZoumjg5l1MnUisZh_4g/exec',
+
+         // Десятковий роздільник для відсотків (для української Excel — кома)
+         DECIMAL: ',',
+
+         // 1.1.d / 1.1.e: рахувати перенаправлення лише для ПОВНИХ кейсів?
+         // false = усі кейси [case] з датою перенаправлення (як в ТЗ)
+         REFERRALS_ONLY_FULL_CASES: false,
+
+         // 2.1.c REGISTERED+ONGOING: рахувати лише родини, що реально зареєстровані на ремонт
+         // (заповнено Прайс / АВР у [repair cash] або [contractor]).
+         // false = усі анкети без дати завершення робіт (буде дуже завищено)
+         ONGOING_REPAIR_REQUIRES_MARK: true,
+
+         // Вразливість (PwDs) стосується лише голови ДГ (так у DATA)
+         PWD_ONLY_HOH: true,
+
+         // Етнічна меншина — питання про "вас чи когось із членів родини" → застосовуємо до всієї родини
+         ETHNIC_ALL_MEMBERS: true,
+      };
+
+      /* =====================================================================
+         ДОВІДНИКИ
+         ===================================================================== */
+      const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+      const ETH = "Diverse ethnic background (e.g. Third-Country Nationals, Roma, ...)";
+      const CATS = ["Total", "Male", "Female", "18-39", "39-49", "50+", "PwDs", "IDPs", "Returnee", "Host community members", ETH];
+
+      // Відповідність колонок DATA (декілька варіантів назви на випадок розбіжностей)
+      const COLS = {
+         id: ['_id'],
+         caseType: ['Тип кейсу [case]'],
+         caseStatus: ['Статус кейса (Загально) [case]'],
+         caseLast: ['Дата останньої консультації [case]'],
+         caseSum: ['Сума до виплати [case]'],
+         casePay: ['Дата оплати [case]'],
+         refInt: ['Дата першого перенаправлення [case]', 'Дата першого перенаправлення внутрішнього [case]'],
+         refExt: ['Дата першого перенаправлення зовнішнього [case]'],
+         lawStatus: ['Статус [lawyer]'],
+         lawLast: ['Дата останньої активності [lawyer]'],
+         lawType: ['Тип Супроводу [lawyer]'],
+         lawSum: ['Сума до виплати [lawyer]'],
+         lawPay: ['Дата оплати [lawyer]'],
+         pssStatus: ['Статус [pss]'],
+         pssLast: ['Дата останньої активності [pss]'],
+         rcPrice: ['Прайс [repair cash]'],
+         rcSum: ['АВР, сума [repair cash]'],
+         rcDone: ['Завершення робіт, дата [repair cash]'],
+         ctPrice: ['Прайс [contractor]'],
+         ctSum: ['АВР, сума [contractor]'],
+         ctDone: ['Завершення робіт, дата [contractor]'],
+         age: ['Вік'],
+         gender: ['Стать'],
+         status: ['Статус'],
+         vuln: ['Вразливість'],
+         hhSize: ['Кількість членів домогосподарства'],
+         family: ['Члени родини'],
+         regDate: ['Дата реєстрації бенефіціара'],
+         ethnic: [{ contains: 'етнічних меншин' }],
+         location: [{ contains: 'локац' }],
+      };
+      const OPTIONAL_COLS = ['location'];
+
+      // 22 індикатори у порядку шаблону ITT
+      const INDICATORS = [
+         { id: '1.1a_c', name: '1.1. a) Number of participants who received case management services (CLOSED)' },
+         { id: '1.1a_a', name: '1.1. a) Number of participants who received case management services (ACTUAL)' },
+         { id: '1.1b_c', name: '1.1. b) Number of participants who received individual protection counselling (CLOSED)' },
+         { id: '1.1b_a', name: '1.1. b) Number of participants who received individual protection counselling (ACTUAL)' },
+         { id: '1.1d', name: '1.1. d) Participants who received one or more referrals to internal services' },
+         { id: '1.1e', name: '1.1. e) Participants who received one or more referrals to specialized external services' },
+         { id: '1.1d_p', name: '1.1. d) % of participants who received one or more referrals to internal services', pct: { num: '1.1d', den: ['1.1a_c', '1.1a_a'] } },
+         { id: '1.1e_p', name: '1.1. e) % of participants who received one or more referrals to specialized external services', pct: { num: '1.1e', den: ['1.1a_c', '1.1a_a'] } },
+         { id: '1.2a_p', name: '1.2. a) Number of participants who received individual assistance for protection (cash) (PAYED)' },
+         { id: '1.2a_r', name: '1.2. a) Number of participants who received individual assistance for protection (cash) (REGISTERED FOR C4P)' },
+         { id: '1.3a_c', name: '1.3. a) Number of participants who received individual legal support in obtaining their rights (CLOSED)' },
+         { id: '1.3a_a', name: '1.3. a) Number of participants who received individual legal support in obtaining their rights (ACTUAL)' },
+         { id: '1.3c_p', name: '1.3. c) Number of participants who received financial assistance for legal support (PAYED)' },
+         { id: '1.3c_r', name: '1.3. c) Number of participants who received financial assistance for legal support (REGISTERED FOR CLA)' },
+         { id: '1.3e_c', name: '1.3. e) Number of participants who received legal representation in court and secondary legal aid (CLOSED)' },
+         { id: '1.3e_a', name: '1.3. e) Number of participants who received legal representation in court and secondary legal aid (ACTUAL)' },
+         { id: '1.4a_c', name: '1.4. a) Number of participants provided with evidence-based crisis intervention and counseling (CLOSED)' },
+         { id: '1.4a_a', name: '1.4. a) Number of participants provided with evidence-based crisis intervention and counseling (ACTUAL)' },
+         { id: '2.1a', name: '2.1. a) Number of households provided with humanitarian assistance for shelter repair', totalOnly: true },
+         { id: '2.1b', name: '2.1. b) Number of households that benefited from the renovation of common areas in apartment buildings', comingSoon: true },
+         { id: '2.1c_f', name: '2.1. c) Number of people who benefited from humanitarian repairs and repairs of common areas in their apartment buildings (FINALISED REPAIRS)' },
+         { id: '2.1c_r', name: '2.1. c) Number of people who benefited from humanitarian repairs and repairs of common areas in their apartment buildings (REGISTERED+ONGOING REPAIRS)' },
+      ];
+      const IND_BY_ID = Object.fromEntries(INDICATORS.map(i => [i.id, i]));
+
+      // Звідки береться дата для кожного індикатора (для підказок у "Перевірці даних")
+      const DATE_SOURCE = {
+         '1.1a_c': 'Дата останньої консультації [case]', '1.1a_a': 'Дата останньої консультації [case]',
+         '1.1b_c': 'Дата останньої консультації [case]', '1.1b_a': 'Дата останньої консультації [case]',
+         '1.1d': 'Дата першого перенаправлення [case]', '1.1e': 'Дата першого перенаправлення зовнішнього [case]',
+         '1.2a_p': 'Дата оплати [case]', '1.2a_r': 'Дата останньої консультації [case]',
+         '1.3a_c': 'Дата останньої активності [lawyer]', '1.3a_a': 'Дата останньої активності [lawyer]',
+         '1.3c_p': 'Дата оплати [lawyer]', '1.3c_r': 'Дата останньої активності [lawyer]',
+         '1.3e_c': 'Дата останньої активності [lawyer]', '1.3e_a': 'Дата останньої активності [lawyer]',
+         '1.4a_c': 'Дата останньої активності [pss]', '1.4a_a': 'Дата останньої активності [pss]',
+         '2.1a': 'Завершення робіт, дата [repair cash] / [contractor]', '2.1c_f': 'Завершення робіт, дата [repair cash] / [contractor]',
+         '2.1c_r': 'Дата реєстрації бенефіціара',
+      };
+
+      /* =====================================================================
+         СТАН
+         ===================================================================== */
+      let RECORDS = [];         // нормалізовані анкети
+      let MISSING_COLS = [];    // колонки, яких не знайдено в DATA
+      let report = {};          // report[indId][YYYY-MM][cat] = [ {id, p} ... ]
+      let warnings = {};        // warnings[indId][reason] = [ids]
+      let info = {};            // загальна статистика
+      let lastLoad = null;
+      const ui = { year: null, location: '', search: '', showTotal: false, compact: false };
+
+      const $ = id => document.getElementById(id);
+
+      /* =====================================================================
+         УТИЛІТИ
+         ===================================================================== */
+      const norm = s => String(s == null ? '' : s).toLowerCase().replace(/[’ʼ`‘]/g, "'").replace(/\s+/g, ' ').trim();
+      const low = v => norm(v);
+      const isEmpty = v => v === null || v === undefined || String(v).trim() === '';
+      const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+      function parseAmount(v) {
+         if (typeof v === 'number') return v;
+         if (isEmpty(v)) return 0;
+         const n = parseFloat(String(v).replace(/[\s ]/g, '').replace(',', '.').replace(/[^0-9.\-]/g, ''));
+         return isNaN(n) ? 0 : n;
+      }
+
+      // Повертає Date (локальну) або null. Підтримує yyyy-MM-dd, dd.MM.yyyy, dd/MM/yyyy, ISO з часом
+      function parseDate(v) {
+         if (isEmpty(v)) return null;
+         if (v instanceof Date) return isNaN(v) ? null : v;
+         const s = String(v).trim();
+         let m = s.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/);
+         if (m) return mk(+m[1], +m[2], +m[3]);
+         m = s.match(/^(\d{4})-(\d{2})-(\d{2})T/);
+         if (m) { const d = new Date(s); return isNaN(d) ? mk(+m[1], +m[2], +m[3]) : d; }
+         m = s.match(/(\d{1,2})[.\/](\d{1,2})[.\/](\d{4})/);
+         if (m) return mk(+m[3], +m[2], +m[1]);
+         m = s.match(/(\d{4})-(\d{1,2})-(\d{1,2})/);
+         if (m) return mk(+m[1], +m[2], +m[3]);
+         return null;
+         function mk(y, mo, d) {
+            if (mo < 1 || mo > 12 || d < 1 || d > 31) return null;
+            const dt = new Date(y, mo - 1, d);
+            return isNaN(dt) ? null : dt;
+         }
+      }
+
+      const ymKey = d => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`;
+
+      function ageFrom(birth) {
+         const b = parseDate(birth);
+         if (!b) return null;
+         const t = new Date();
+         let a = t.getFullYear() - b.getFullYear();
+         const md = t.getMonth() - b.getMonth();
+         if (md < 0 || (md === 0 && t.getDate() < b.getDate())) a--;
+         return a;
+      }
+
+      function parseGender(v) {
+         const s = low(v);
+         if (s.startsWith('ж')) return 'F';
+         if (s.startsWith('ч')) return 'M';
+         return null;
+      }
+
+      function fmtPct(num, den) {
+         if (!den) return num ? '—' : '0%';
+         return (Math.round(num / den * 1000) / 10).toString().replace('.', CONFIG.DECIMAL) + '%';
+      }
+
+      function toast(msg, color = 'bg-green-600') {
+         const t = $('toast');
+         t.className = t.className.replace(/bg-\w+-\d+/, color);
+         t.textContent = msg;
+         t.style.opacity = '1';
+         clearTimeout(t._h);
+         t._h = setTimeout(() => t.style.opacity = '0', 1800);
+      }
+
+      /* =====================================================================
+         ЗАВАНТАЖЕННЯ
+         ===================================================================== */
+      async function fetchData() {
+         const loading = $('loading');
+         loading.className = 'text-blue-700 font-semibold mb-3 bg-blue-100 p-4 rounded-lg';
+         loading.innerHTML = '⏳ Завантаження та обробка масиву даних… <span id="load-timer">0</span> с';
+         const t0 = Date.now();
+         const timer = setInterval(() => { const el = $('load-timer'); if (el) el.textContent = Math.round((Date.now() - t0) / 1000); }, 500);
+         $('btn-refresh').disabled = true;
+
+         try {
+            const response = await fetch(CONFIG.API_URL);
+            if (!response.ok) throw new Error('Помилка мережі: ' + response.status);
+            const raw = await response.json();
+            if (raw && raw.error) throw new Error(raw.error);
+
+            loadRecords(raw);
+            processAll();
+            setupFilters();
+            render();
+
+            lastLoad = { at: new Date(), secs: ((Date.now() - t0) / 1000).toFixed(1) };
+            loading.classList.add('hidden');
+            $('dashboard-table').classList.remove('hidden');
+            updateMeta();
+            if (MISSING_COLS.length) toast('⚠️ Не знайдено колонок: ' + MISSING_COLS.length + ' — див. «Перевірка даних»', 'bg-amber-600');
+         } catch (error) {
+            console.error('Помилка:', error);
+            loading.className = 'text-red-700 font-semibold mb-3 bg-red-100 p-4 rounded-lg';
+            loading.innerHTML = '❌ Помилка завантаження даних: ' + esc(error.message) +
+               '<div class="text-xs font-normal mt-1">Перевір, що в API_URL вставлено актуальне посилання /exec з доступом «Усі», і що скрипт розгорнуто.</div>';
+         } finally {
+            clearInterval(timer);
+            $('btn-refresh').disabled = false;
+         }
+      }
+
+      // Підтримує і старий формат (масив об'єктів), і новий швидкий ({headers, rows})
+      function loadRecords(raw) {
+         let headers, getRow;
+         if (Array.isArray(raw)) {
+            headers = raw.length ? Object.keys(raw[0]) : [];
+            getRow = (r, h) => r[h];
+            raw = { rows: raw };
+         } else {
+            headers = raw.headers || [];
+            const pos = Object.fromEntries(headers.map((h, i) => [h, i]));
+            getRow = (r, h) => r[pos[h]];
+         }
+
+         const normMap = {};
+         headers.forEach(h => { const n = norm(h); if (n && !(n in normMap)) normMap[n] = h; });
+
+         const resolved = {};
+         MISSING_COLS = [];
+         for (const key in COLS) {
+            let found = null;
+            for (const alias of COLS[key]) {
+               if (typeof alias === 'string') {
+                  if (normMap[norm(alias)]) { found = normMap[norm(alias)]; break; }
+               } else {
+                  const n = Object.keys(normMap).find(k => k.includes(alias.contains));
+                  if (n) { found = normMap[n]; break; }
+               }
+            }
+            resolved[key] = found;
+            if (!found && !OPTIONAL_COLS.includes(key)) {
+               // для 1.1.d достатньо однієї з назв
+               MISSING_COLS.push(typeof COLS[key][0] === 'string' ? COLS[key][0] : '…' + COLS[key][0].contains + '…');
+            }
+         }
+
+         RECORDS = (raw.rows || []).map((r, i) => {
+            const rec = { _row: i + 2 };
+            for (const key in resolved) rec[key] = resolved[key] ? getRow(r, resolved[key]) : '';
+            if (isEmpty(rec.id)) rec.id = 'рядок ' + (i + 2);
+            return rec;
+         });
+         info.hasLocation = !!resolved.location;
+      }
+
+      /* =====================================================================
+         ЧЛЕНИ РОДИНИ
+         ===================================================================== */
+      function buildHousehold(rec) {
+         const hohAge = parseInt(rec.age);
+         const hoh = {
+            id: rec.id, isHoH: true, idx: 0,
+            gender: parseGender(rec.gender),
+            age: isNaN(hohAge) ? null : hohAge,
+         };
+
+         // "Жінка: 2008-03-05; Чоловік: 2015-09-10" (+ переноси рядків)
+         const listed = [];
+         String(rec.family || '').split(/[;\n\r]+/).forEach(part => {
+            const p = part.trim();
+            if (!p) return;
+            const c = p.indexOf(':');
+            if (c < 0) return;
+            const g = parseGender(p.slice(0, c));
+            const birth = p.slice(c + 1).trim();
+            if (!g && !birth) return;
+            listed.push({ gender: g, age: ageFrom(birth) });
+         });
+
+         // Якщо кількість у "Члени родини" == "Кількість членів домогосподарства",
+         // значить голова ДГ уже є у списку → прибираємо дубль
+         let others = listed;
+         const size = parseInt(rec.hhSize);
+         if (!isNaN(size) && size > 0 && listed.length === size) {
+            let k = listed.findIndex(m => m.gender === hoh.gender && hoh.age != null && m.age != null && Math.abs(m.age - hoh.age) <= 2);
+            if (k < 0) k = 0;
+            others = listed.filter((_, i) => i !== k);
+         } else if (!isNaN(size) && size > 0 && listed.length !== size - 1) {
+            info.familyMismatch.push(rec.id);
+         }
+
+         const members = [hoh, ...others.map((m, i) => ({ id: rec.id, isHoH: false, idx: i + 1, gender: m.gender, age: m.age }))];
+
+         // Ознаки рівня домогосподарства
+         const st = low(rec.status);
+         const statusCat =
+            (st.includes('внутрішньо') || st.includes('впо')) ? 'IDPs' :
+               (st.includes('репатріант') || st.includes('транзит')) ? 'Returnee' :
+                  st.includes('місцев') ? 'Host community members' : null;
+         const pwd = low(rec.vuln).includes('інвалідн');
+         const ethnic = low(rec.ethnic).startsWith('так');
+
+         members.forEach(m => {
+            m.statusCat = statusCat;
+            m.pwd = pwd && (!CONFIG.PWD_ONLY_HOH || m.isHoH);
+            m.ethnic = ethnic && (CONFIG.ETHNIC_ALL_MEMBERS || m.isHoH);
+         });
+         return members;
+      }
+
+      function personCats(p) {
+         const c = ['Total'];
+         if (p.gender === 'M') c.push('Male');
+         if (p.gender === 'F') c.push('Female');
+         if (p.age != null) {
+            if (p.age >= 18 && p.age <= 39) c.push('18-39');
+            else if (p.age >= 40 && p.age <= 49) c.push('39-49');
+            else if (p.age >= 50) c.push('50+');
+         }
+         if (p.pwd) c.push('PwDs');
+         if (p.statusCat) c.push(p.statusCat);
+         if (p.ethnic) c.push(ETH);
+         return c;
+      }
+
+      /* =====================================================================
+         ПІДРАХУНОК
+         ===================================================================== */
+      function add(indId, dateVal, persons, rec) {
+         const d = parseDate(dateVal);
+         if (!d) { warn(indId, rec, isEmpty(dateVal) ? 'порожня дата' : 'нерозпізнана дата: "' + dateVal + '"'); return; }
+         const ym = ymKey(d);
+         const ind = IND_BY_ID[indId];
+         report[indId] ??= {};
+         const cell = report[indId][ym] ??= {};
+         persons.forEach(p => {
+            const cats = ind.totalOnly ? ['Total'] : personCats(p);
+            cats.forEach(cat => (cell[cat] ??= []).push(p));
+         });
+      }
+
+      function warn(indId, rec, reason) {
+         warnings[indId] ??= {};
+         (warnings[indId][reason] ??= []).push(rec.id);
+      }
+
+      function processAll() {
+         report = {};
+         warnings = {};
+         info.familyMismatch = [];
+         info.households = 0;
+         info.persons = 0;
+
+         const recs = ui.location ? RECORDS.filter(r => String(r.location).trim() === ui.location) : RECORDS;
+
+         recs.forEach(rec => {
+            const hh = buildHousehold(rec);
+            const hoh = hh[0];
+            info.households++;
+            info.persons += hh.length;
+
+            /* ---------- КЕЙС-МЕНЕДЖМЕНТ [case] ---------- */
+            const type = low(rec.caseType);
+            const isFull = type.includes('повн');
+            const isCons = type.includes('консульт');
+            const cs = low(rec.caseStatus);
+            const caseClosed = cs.includes('закрит') || cs.includes('заверш');
+
+            // 1.1.a повні кейси (лише голова ДГ), дата — остання консультація
+            if (isFull) add(caseClosed ? '1.1a_c' : '1.1a_a', rec.caseLast, [hoh], rec);
+            // 1.1.b консультативні кейси (лише голова ДГ)
+            if (isCons) add(caseClosed ? '1.1b_c' : '1.1b_a', rec.caseLast, [hoh], rec);
+
+            // 1.1.d / 1.1.e перенаправлення (лише голова ДГ), дата — перше перенаправлення
+            const refOk = CONFIG.REFERRALS_ONLY_FULL_CASES ? isFull : true;
+            if (refOk && !isEmpty(rec.refInt)) add('1.1d', rec.refInt, [hoh], rec);
+            if (refOk && !isEmpty(rec.refExt)) add('1.1e', rec.refExt, [hoh], rec);
+
+            // 1.2.a грошова допомога кейса (УСІ члени родини)
+            if (isFull && parseAmount(rec.caseSum) !== 0) {
+               if (!isEmpty(rec.casePay)) add('1.2a_p', rec.casePay, hh, rec);
+               else add('1.2a_r', rec.caseLast, hh, rec);
+            }
+
+            /* ---------- ЮРИСТ / АДВОКАТ [lawyer] ---------- */
+            const ls = low(rec.lawStatus);
+            if (ls) {
+               const lawDone = ls.includes('заверш') || ls.includes('закрит');
+               add(lawDone ? '1.3a_c' : '1.3a_a', rec.lawLast, [hoh], rec);
+               if (low(rec.lawType).includes('адвокат')) add(lawDone ? '1.3e_c' : '1.3e_a', rec.lawLast, [hoh], rec);
+            }
+            if (parseAmount(rec.lawSum) !== 0) {
+               if (!isEmpty(rec.lawPay)) add('1.3c_p', rec.lawPay, hh, rec);
+               else add('1.3c_r', rec.lawLast, hh, rec);
+            }
+
+            /* ---------- ПСИХОЛОГ [pss] ---------- */
+            const ps = low(rec.pssStatus);
+            if (ps) {
+               const pssDone = ps.includes('заверш') || ps.includes('закрит');
+               add(pssDone ? '1.4a_c' : '1.4a_a', rec.pssLast, [hoh], rec);
+            }
+
+            /* ---------- РЕМОНТИ ---------- */
+            const rcDone = !isEmpty(rec.rcDone), ctDone = !isEmpty(rec.ctDone);
+            if (rcDone || ctDone) {
+               const d = rcDone ? rec.rcDone : rec.ctDone;
+               add('2.1a', d, [hoh], rec);       // домогосподарства, лише Total
+               add('2.1c_f', d, hh, rec);        // усі члени родини
+            } else {
+               const repairRegistered = [rec.rcPrice, rec.rcSum, rec.ctPrice, rec.ctSum].some(v => !isEmpty(v));
+               if (!CONFIG.ONGOING_REPAIR_REQUIRES_MARK || repairRegistered) add('2.1c_r', rec.regDate, hh, rec);
+            }
+         });
+      }
+
+      /* =====================================================================
+         ЗНАЧЕННЯ КЛІТИНОК
+         ===================================================================== */
+      function count(indId, ym, cat) {
+         const c = report[indId]?.[ym]?.[cat];
+         return c ? c.length : 0;
+      }
+      function yearSum(indId, year, cat) {
+         let s = 0;
+         for (let m = 1; m <= 12; m++) s += count(indId, `${year}-${String(m).padStart(2, '0')}`, cat);
+         return s;
+      }
+      // повертає { text, num }
+      function cellValue(ind, year, monthIdx, cat) {
+         const get = (id) => monthIdx === 12 ? yearSum(id, year, cat) : count(id, `${year}-${String(monthIdx + 1).padStart(2, '0')}`, cat);
+         if (ind.pct) {
+            const num = get(ind.pct.num);
+            const den = ind.pct.den.reduce((s, id) => s + get(id), 0);
+            return { text: fmtPct(num, den), num: den ? num / den * 100 : 0, zero: num === 0 };
+         }
+         const v = get(ind.id);
+         return { text: String(v), num: v, zero: v === 0 };
+      }
+
+      /* =====================================================================
+         ФІЛЬТРИ
+         ===================================================================== */
+      function availableYears() {
+         const ys = new Set();
+         for (const id in report) for (const ym in report[id]) ys.add(+ym.slice(0, 4));
+         return [...ys].sort();
+      }
+
+      function setupFilters() {
+         const years = availableYears();
+         const cur = new Date().getFullYear();
+         if (!years.includes(cur)) years.push(cur);
+         years.sort();
+         if (!ui.year || !years.includes(ui.year)) ui.year = years.includes(cur) ? cur : years[years.length - 1];
+         $('year-select').innerHTML = years.map(y => `<option value="${y}" ${y === ui.year ? 'selected' : ''}>${y}</option>`).join('');
+
+         if (info.hasLocation) {
+            const locs = [...new Set(RECORDS.map(r => String(r.location).trim()).filter(Boolean))].sort();
+            $('location-select').innerHTML = `<option value="">Усі локації</option>` +
+               locs.map(l => `<option ${l === ui.location ? 'selected' : ''}>${esc(l)}</option>`).join('');
+            $('location-wrap').classList.remove('hidden');
+         }
+      }
+
+      function visibleIndicators() {
+         const q = norm(ui.search);
+         return INDICATORS.filter(i => !q || norm(i.name).includes(q));
+      }
+
+      /* =====================================================================
+         ПОБУДОВА ТАБЛИЦІ (одна функція і для екрана, і для Excel)
+         ===================================================================== */
+      const EXPORT_STYLE = {
+         'bg-itt-red': 'background:#c00000;color:#fff;font-weight:bold;text-align:center;vertical-align:middle;',
+         'bg-itt-gray': 'background:#bfbfbf;font-weight:bold;',
+         'bg-itt-white': 'background:#fff;',
+         'bg-itt-header-light': 'background:#fce4d6;font-weight:bold;text-align:center;',
+         'bg-itt-header-green': 'background:#e2efda;font-weight:bold;text-align:center;',
+         'bg-itt-month': 'background:#c00000;color:#fff;font-weight:bold;text-align:center;',
+         'bg-itt-yeartotal': 'background:#7f0000;color:#fff;font-weight:bold;text-align:center;',
+         'bg-itt-soon': 'background:#f3f4f6;color:#6b7280;font-style:italic;text-align:center;',
+         'num': 'text-align:center;',
+         'tc': 'text-align:center;',
+         'ytotal': 'background:#fff2cc;font-weight:bold;',
+      };
+
+      function buildTable(forExport) {
+         const year = ui.year;
+         const cols = ui.showTotal ? 13 : 12;
+         const attr = (classes, extra = '') => {
+            if (!forExport) return `class="${classes}" ${extra}`;
+            const st = classes.split(' ').map(c => EXPORT_STYLE[c] || '').join('') + 'border:1px solid #000;';
+            return `style="${st}" ${extra.replace(/data-[\w-]+="[^"]*"/g, '')}`;
+         };
+
+         let head = `<tr>
+            <th ${attr('bg-itt-header-light sticky1')}>Indicators or Implementation Steps / Показники або етапи реалізації</th>
+            <th ${attr('bg-itt-header-green sticky2')}>Beneficiaries / Disaggregation</th>`;
+         MONTHS.forEach((m, i) => head += `<th ${attr('bg-itt-month', `data-c="${i}"`)}>${m}</th>`);
+         if (ui.showTotal) head += `<th ${attr('bg-itt-yeartotal', 'data-c="12"')}>Разом ${year}</th>`;
+         head += `</tr>`;
+
+         let body = '';
+         let r = 0;
+         visibleIndicators().forEach(ind => {
+            if (ind.comingSoon) {
+               body += `<tr><td ${attr('bg-itt-red sticky1')}>${esc(ind.name)}</td>
+                  <td ${attr('bg-itt-gray sticky2 tc')}>Total</td>
+                  <td ${attr('bg-itt-soon', `colspan="${cols}"`)}>Coming soon</td></tr>`;
+               return;
+            }
+            const cats = (ind.totalOnly || ui.compact) ? ['Total'] : CATS;
+            cats.forEach((cat, ci) => {
+               const isTotal = cat === 'Total';
+               body += `<tr>`;
+               if (ci === 0) body += `<td ${attr('bg-itt-red sticky1', `rowspan="${cats.length}"`)}>${esc(ind.name)}</td>`;
+               body += `<td ${attr((isTotal ? 'bg-itt-gray' : 'bg-itt-white') + ' sticky2' + (isTotal ? ' tc' : ''))}>${esc(cat)}</td>`;
+               for (let c = 0; c < cols; c++) {
+                  const v = cellValue(ind, year, c, cat);
+                  const cls = ['num', isTotal ? 'bg-itt-gray gray' : 'bg-itt-white', v.zero ? 'zero' : '', c === 12 ? 'ytotal' : ''].join(' ').trim();
+                  body += `<td ${attr(cls, `data-r="${r}" data-c="${c}" data-ind="${ind.id}" data-cat="${esc(cat)}"`)}>${v.text}</td>`;
+               }
+               body += `</tr>`;
+               r++;
+            });
+         });
+         return { head, body };
+      }
+
+      function render() {
+         const { head, body } = buildTable(false);
+         $('dashboard-head').innerHTML = head;
+         $('dashboard-body').innerHTML = body;
+         buildGrid();
+         clearSelection();
+         renderKpis();
+      }
+
+      function renderKpis() {
+         const y = ui.year;
+         const s = (...ids) => ids.reduce((a, id) => a + yearSum(id, y, 'Total'), 0);
+         const tiles = [
+            ['Кейс-менеджмент (повні кейси)', s('1.1a_c', '1.1a_a'), `закриті ${s('1.1a_c')} · активні ${s('1.1a_a')}`],
+            ['Отримали грошову допомогу (осіб)', s('1.2a_p', '1.3c_p'), `C4P ${s('1.2a_p')} · CLA ${s('1.3c_p')} · очікують ${s('1.2a_r', '1.3c_r')}`],
+            ['Юридична + психологічна підтримка', s('1.3a_c', '1.3a_a', '1.4a_c', '1.4a_a'), `юристи ${s('1.3a_c', '1.3a_a')} · психологи ${s('1.4a_c', '1.4a_a')}`],
+            ['Ремонти завершено (ДГ)', s('2.1a'), `осіб: завершено ${s('2.1c_f')} · в процесі ${s('2.1c_r')}`],
+         ];
+         $('kpis').innerHTML = tiles.map(([t, v, sub]) => `
+            <div class="bg-white rounded-xl shadow p-3 border-l-4" style="border-color: var(--caritas-blue)">
+               <div class="text-xs text-gray-500 font-semibold">${t} · ${y}</div>
+               <div class="text-2xl font-bold" style="color: var(--caritas-blue)">${v}</div>
+               <div class="text-xs text-gray-500">${sub}</div>
+            </div>`).join('');
+      }
+
+      function updateMeta() {
+         if (!lastLoad) return;
+         const w = Object.values(warnings).reduce((a, o) => a + Object.values(o).reduce((b, l) => b + l.length, 0), 0);
+         $('meta-line').textContent =
+            `Оновлено ${lastLoad.at.toLocaleString('uk-UA')} · ${info.households} анкет · ${info.persons} осіб · завантаження ${lastLoad.secs} с`;
+         const btn = $('btn-check');
+         btn.innerHTML = `🩺 Перевірка даних${(w || MISSING_COLS.length) ? ` <span class="bg-amber-500 text-white rounded-full px-2 text-xs">${MISSING_COLS.length ? '!' : w}</span>` : ''}`;
+         btn.classList.toggle('btn-warn', !!MISSING_COLS.length);
+      }
+
+      /* =====================================================================
+         ВИДІЛЕННЯ ЯК У GOOGLE SHEETS
+         ===================================================================== */
+      let grid = [];               // grid[r][c] = td
+      let selected = new Set();
+      let anchor = null;
+      let dragging = false;
+      let baseSel = null;          // для Ctrl/⌘ + перетягування
+
+      function buildGrid() {
+         grid = [];
+         document.querySelectorAll('#dashboard-body td.num').forEach(td => {
+            const r = +td.dataset.r, c = +td.dataset.c;
+            (grid[r] ??= [])[c] = td;
+         });
+      }
+
+      function clearSelection() {
+         selected.forEach(td => td.classList.remove('selected'));
+         selected.clear();
+         document.querySelectorAll('#dashboard-head th.selected-col').forEach(th => th.classList.remove('selected-col'));
+         updateStats();
+      }
+
+      function applySelection(set) {
+         selected.forEach(td => { if (!set.has(td)) td.classList.remove('selected'); });
+         set.forEach(td => td.classList.add('selected'));
+         selected = set;
+         updateStats();
+      }
+
+      function rect(a, b) {
+         const set = new Set();
+         const r1 = Math.min(+a.dataset.r, +b.dataset.r), r2 = Math.max(+a.dataset.r, +b.dataset.r);
+         const c1 = Math.min(+a.dataset.c, +b.dataset.c), c2 = Math.max(+a.dataset.c, +b.dataset.c);
+         for (let r = r1; r <= r2; r++) for (let c = c1; c <= c2; c++) if (grid[r]?.[c]) set.add(grid[r][c]);
+         return set;
+      }
+
+      function initTableInteractions() {
+         const body = $('dashboard-body');
+         const head = $('dashboard-head');
+
+         body.addEventListener('mousedown', e => {
+            const td = e.target.closest('td.num');
+            if (!td) return;
+            e.preventDefault();
+            document.querySelectorAll('#dashboard-head th.selected-col').forEach(th => th.classList.remove('selected-col'));
+            if (e.shiftKey && anchor) {
+               applySelection(rect(anchor, td));
+            } else if (e.ctrlKey || e.metaKey) {
+               baseSel = new Set(selected);
+               if (baseSel.has(td)) { baseSel.delete(td); td.classList.remove('selected'); applySelection(new Set(baseSel)); }
+               else applySelection(new Set([...baseSel, td]));
+               anchor = td;
+            } else {
+               baseSel = null;
+               anchor = td;
+               applySelection(new Set([td]));
+            }
+            dragging = true;
+         });
+
+         body.addEventListener('mouseover', e => {
+            if (!dragging || !anchor) return;
+            const td = e.target.closest('td.num');
+            if (!td) return;
+            const r = rect(anchor, td);
+            applySelection(baseSel ? new Set([...baseSel, ...r]) : r);
+         });
+
+         document.addEventListener('mouseup', () => { dragging = false; });
+
+         // клік по місяцю — увесь стовпець; Shift — діапазон місяців
+         let colAnchor = null;
+         head.addEventListener('click', e => {
+            const th = e.target.closest('th[data-c]');
+            if (!th) return;
+            const c = +th.dataset.c;
+            const from = (e.shiftKey && colAnchor !== null) ? Math.min(colAnchor, c) : c;
+            const to = (e.shiftKey && colAnchor !== null) ? Math.max(colAnchor, c) : c;
+            if (!e.shiftKey) colAnchor = c;
+            const set = new Set();
+            grid.forEach(row => { for (let k = from; k <= to; k++) if (row?.[k]) set.add(row[k]); });
+            head.querySelectorAll('th.selected-col').forEach(x => x.classList.remove('selected-col'));
+            head.querySelectorAll('th[data-c]').forEach(x => { if (+x.dataset.c >= from && +x.dataset.c <= to) x.classList.add('selected-col'); });
+            applySelection(set);
+         });
+
+         // подвійний клік — хто саме порахований
+         body.addEventListener('dblclick', e => {
+            const td = e.target.closest('td.num');
+            if (td) showDrilldown(td);
+         });
+
+         document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') { closeModal(); clearSelection(); }
+            const inInput = ['INPUT', 'SELECT', 'TEXTAREA'].includes(document.activeElement?.tagName);
+            if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'c' && selected.size && !inInput && !window.getSelection().toString()) {
+               e.preventDefault();
+               copySelection();
+            }
+         });
+      }
+
+      function parseCell(td) {
+         const t = td.textContent.trim().replace('%', '').replace(',', '.');
+         const n = parseFloat(t);
+         return isNaN(n) ? null : n;
+      }
+
+      function updateStats() {
+         const bar = $('sheets-statusbar');
+         const nums = [...selected].map(parseCell).filter(n => n !== null);
+         if (!nums.length) { bar.style.opacity = '0'; return; }
+         const sum = nums.reduce((a, b) => a + b, 0);
+         const f = n => n.toLocaleString('uk-UA', { maximumFractionDigits: 2 });
+         $('stat-sum').textContent = f(sum);
+         $('stat-count').textContent = nums.length;
+         $('stat-avg').textContent = f(sum / nums.length);
+         $('stat-min').textContent = f(Math.min(...nums));
+         $('stat-max').textContent = f(Math.max(...nums));
+         bar.style.opacity = '1';
+      }
+
+      async function copySelection() {
+         const cells = [...selected].sort((a, b) => (a.dataset.r - b.dataset.r) || (a.dataset.c - b.dataset.c));
+         const rows = new Map();
+         cells.forEach(td => {
+            const r = +td.dataset.r;
+            if (!rows.has(r)) rows.set(r, []);
+            rows.get(r).push(td);
+         });
+         const minC = Math.min(...cells.map(td => +td.dataset.c));
+         const tsv = [...rows.values()].map(list => {
+            const line = [];
+            list.forEach(td => { line[+td.dataset.c - minC] = td.textContent.trim(); });
+            return Array.from(line, v => v ?? '').join('\t');
+         }).join('\n');
+         try { await navigator.clipboard.writeText(tsv); toast(`📋 Скопійовано ${cells.length} клітинок`); }
+         catch { toast('Не вдалося скопіювати', 'bg-red-600'); }
+      }
+
+      /* =====================================================================
+         ДЕТАЛІЗАЦІЯ (подвійний клік)
+         ===================================================================== */
+      function showDrilldown(td) {
+         const ind = IND_BY_ID[td.dataset.ind];
+         const cat = td.dataset.cat;
+         const c = +td.dataset.c;
+         const monthLabel = c === 12 ? `увесь ${ui.year}` : `${MONTHS[c]} ${ui.year}`;
+         const ymList = c === 12 ? Array.from({ length: 12 }, (_, i) => `${ui.year}-${String(i + 1).padStart(2, '0')}`) : [`${ui.year}-${String(c + 1).padStart(2, '0')}`];
+
+         const collect = id => ymList.flatMap(ym => report[id]?.[ym]?.[cat] || []);
+         let html = '';
+         if (ind.pct) {
+            const num = collect(ind.pct.num), den = ind.pct.den.flatMap(collect);
+            html = `<p class="mb-3">Формула: <b>${num.length}</b> (перенаправлення) ÷ <b>${den.length}</b> (повні кейси CLOSED + ACTUAL) × 100 = <b>${fmtPct(num.length, den.length)}</b></p>` +
+               personTable(num, 'Перенаправлені');
+         } else {
+            html = personTable(collect(ind.id));
+         }
+         openModal(`${esc(ind.name)}<div class="text-xs font-normal text-gray-500 mt-1">${esc(cat)} · ${monthLabel} · дата: ${esc(DATE_SOURCE[ind.id] || DATE_SOURCE[ind.pct?.num] || '')}</div>`, html);
+      }
+
+      function personTable(list, title = '') {
+         if (!list.length) return '<p class="text-gray-500">Нікого не пораховано.</p>';
+         const g = { M: 'Чоловік', F: 'Жінка' };
+         const ids = [...new Set(list.map(p => p.id))];
+         const rows = list.map(p => `<tr class="border-b">
+               <td class="py-1 pr-3 font-mono">${esc(p.id)}</td>
+               <td class="py-1 pr-3">${p.isHoH ? '<b>Голова ДГ</b>' : 'член родини #' + p.idx}</td>
+               <td class="py-1 pr-3">${g[p.gender] || '—'}</td>
+               <td class="py-1 pr-3">${p.age ?? '—'}</td>
+               <td class="py-1 pr-3 text-xs text-gray-600">${[p.statusCat, p.pwd ? 'PwD' : '', p.ethnic ? 'етн. меншина' : ''].filter(Boolean).join(', ') || ''}</td>
+            </tr>`).join('');
+         return `<div class="flex items-center gap-3 mb-2">
+               <div>${title ? title + ': ' : ''}<b>${list.length}</b> осіб з <b>${ids.length}</b> анкет</div>
+               <button class="btn ml-auto" onclick="navigator.clipboard.writeText('${ids.map(i => String(i).replace(/'/g, '')).join('\\n')}').then(()=>toast('ID скопійовано'))">📋 Копіювати _id</button>
+            </div>
+            <table class="w-full text-left"><thead><tr class="text-xs text-gray-500 border-b">
+               <th class="py-1">_id</th><th>Хто</th><th>Стать</th><th>Вік</th><th>Ознаки</th></tr></thead>
+            <tbody>${rows}</tbody></table>`;
+      }
+
+      /* =====================================================================
+         ПЕРЕВІРКА ДАНИХ
+         ===================================================================== */
+      function showDiagnostics() {
+         let html = '';
+         if (MISSING_COLS.length) {
+            html += `<div class="bg-red-50 border border-red-200 rounded-lg p-3 mb-4">
+               <b class="text-red-700">Не знайдено колонок у DATA (${MISSING_COLS.length}):</b>
+               <ul class="list-disc ml-5 mt-1">${MISSING_COLS.map(c => `<li>${esc(c)}</li>`).join('')}</ul>
+               <div class="text-xs mt-2 text-gray-600">Перевір точну назву заголовка в таблиці (і в списку KEEP_COLUMNS у Code.gs, якщо оновлював скрипт). Відкрий <span class="font-mono">…/exec?columns=1</span>, щоб побачити всі назви.</div>
+            </div>`;
+         } else {
+            html += `<div class="bg-green-50 border border-green-200 rounded-lg p-3 mb-4 text-green-800">✅ Усі потрібні колонки знайдено.</div>`;
+         }
+
+         const ids = Object.keys(warnings);
+         if (!ids.length) {
+            html += `<p class="text-green-700 mb-4">✅ Усі записи, що відповідають умовам індикаторів, мають коректні дати.</p>`;
+         } else {
+            html += `<p class="mb-2 font-semibold">Записи, які відповідають умовам індикатора, але НЕ потрапили у звіт через дату:</p>`;
+            INDICATORS.filter(i => warnings[i.id]).forEach(ind => {
+               html += `<details class="mb-2 border rounded-lg p-2"><summary class="cursor-pointer"><b>${esc(ind.name)}</b>
+                  <span class="text-xs text-gray-500">— дата з «${esc(DATE_SOURCE[ind.id])}»</span></summary>`;
+               for (const reason in warnings[ind.id]) {
+                  const l = [...new Set(warnings[ind.id][reason])];
+                  html += `<div class="mt-2 ml-2"><span class="text-amber-700">${esc(reason)}</span> — ${l.length} анкет:
+                     <div class="font-mono text-xs text-gray-600 break-all">${l.slice(0, 200).map(esc).join(', ')}${l.length > 200 ? ' …' : ''}</div></div>`;
+               }
+               html += `</details>`;
+            });
+         }
+
+         if (info.familyMismatch.length) {
+            html += `<details class="mt-4 border rounded-lg p-2"><summary class="cursor-pointer">ℹ️ Анкети, де «Кількість членів домогосподарства» не збігається з «Члени родини»: <b>${info.familyMismatch.length}</b></summary>
+               <div class="font-mono text-xs text-gray-600 break-all mt-2">${info.familyMismatch.slice(0, 300).map(esc).join(', ')}</div>
+               <div class="text-xs text-gray-500 mt-1">Рахуємо так: голова ДГ + усі, хто розпізнаний у «Члени родини».</div></details>`;
+         }
+
+         html += `<div class="mt-4 text-xs text-gray-500">Налаштування: перенаправлення лише повних кейсів — <b>${CONFIG.REFERRALS_ONLY_FULL_CASES ? 'так' : 'ні'}</b>;
+            2.1.c ONGOING лише з позначкою ремонту — <b>${CONFIG.ONGOING_REPAIR_REQUIRES_MARK ? 'так' : 'ні'}</b>;
+            PwD лише голова ДГ — <b>${CONFIG.PWD_ONLY_HOH ? 'так' : 'ні'}</b>;
+            етнічна меншина на всю родину — <b>${CONFIG.ETHNIC_ALL_MEMBERS ? 'так' : 'ні'}</b>. Змінюються в CONFIG на початку скрипта.</div>`;
+
+         openModal('🩺 Перевірка даних', html);
+      }
+
+      /* =====================================================================
+         МОДАЛКА
+         ===================================================================== */
+      function openModal(title, html) {
+         $('modal-title').innerHTML = title;
+         $('modal-body').innerHTML = html;
+         $('modal').classList.remove('hidden');
+      }
+      function closeModal() { $('modal').classList.add('hidden'); }
+
+      /* =====================================================================
+         КОПІЮВАННЯ ТАБЛИЦІ / EXCEL
+         ===================================================================== */
+      function exportHtml() {
+         const { head, body } = buildTable(true);
+         return `<table style="border-collapse:collapse;font-family:Calibri,Arial;font-size:11pt"><thead>${head}</thead><tbody>${body}</tbody></table>`;
+      }
+
+      function exportTsv() {
+         const lines = [];
+         const cols = ui.showTotal ? 13 : 12;
+         lines.push(['Indicators or Implementation Steps / Показники або етапи реалізації', 'Beneficiaries / Disaggregation', ...MONTHS, ...(ui.showTotal ? ['Разом ' + ui.year] : [])].join('\t'));
+         visibleIndicators().forEach(ind => {
+            if (ind.comingSoon) { lines.push([ind.name, 'Total', 'Coming soon'].join('\t')); return; }
+            const cats = (ind.totalOnly || ui.compact) ? ['Total'] : CATS;
+            cats.forEach((cat, i) => {
+               const vals = [];
+               for (let c = 0; c < cols; c++) vals.push(cellValue(ind, ui.year, c, cat).text);
+               lines.push([i === 0 ? ind.name : '', cat, ...vals].join('\t'));
+            });
+         });
+         return lines.join('\n');
+      }
+
+      async function copyTable() {
+         const html = exportHtml(), text = exportTsv();
+         try {
+            await navigator.clipboard.write([new ClipboardItem({
+               'text/html': new Blob([html], { type: 'text/html' }),
+               'text/plain': new Blob([text], { type: 'text/plain' }),
+            })]);
+            toast('📋 Таблицю скопійовано — встав у ITT.xlsx (Ctrl/⌘+V)');
+         } catch {
+            // запасний варіант
+            const tmp = document.createElement('div');
+            tmp.style.position = 'fixed'; tmp.style.left = '-99999px';
+            tmp.innerHTML = html;
+            document.body.appendChild(tmp);
+            const range = document.createRange(); range.selectNode(tmp);
+            const sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(range);
+            const ok = document.execCommand('copy');
+            sel.removeAllRanges(); tmp.remove();
+            toast(ok ? '📋 Таблицю скопійовано' : 'Не вдалося скопіювати', ok ? 'bg-green-600' : 'bg-red-600');
+         }
+      }
+
+      function downloadXls() {
+         const doc = `<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel">
+            <head><meta charset="UTF-8"><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet>
+            <x:Name>ITT ${ui.year}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet>
+            </x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--><\/head><body>${exportHtml()}<\/body><\/html>`;
+         const blob = new Blob(['﻿' + doc], { type: 'application/vnd.ms-excel' });
+         const a = document.createElement('a');
+         const stamp = new Date().toISOString().slice(0, 10);
+         a.href = URL.createObjectURL(blob);
+         a.download = `ITT_${ui.year}${ui.location ? '_' + ui.location : ''}_${stamp}.xls`;
+         a.click();
+         setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+      }
+
+      /* =====================================================================
+         ПОДІЇ
+         ===================================================================== */
+      $('year-select').addEventListener('change', e => { ui.year = +e.target.value; render(); });
+      $('location-select').addEventListener('change', e => { ui.location = e.target.value; processAll(); setupFilters(); render(); updateMeta(); });
+      $('search').addEventListener('input', e => { ui.search = e.target.value; render(); });
+      $('opt-total').addEventListener('change', e => { ui.showTotal = e.target.checked; render(); });
+      $('opt-compact').addEventListener('change', e => { ui.compact = e.target.checked; render(); });
+      $('btn-refresh').addEventListener('click', fetchData);
+      $('btn-copy').addEventListener('click', copyTable);
+      $('btn-xls').addEventListener('click', downloadXls);
+      $('btn-check').addEventListener('click', showDiagnostics);
+      $('modal-close').addEventListener('click', closeModal);
+      $('modal').addEventListener('click', e => { if (e.target.id === 'modal') closeModal(); });
+
+      initTableInteractions();
+      fetchData();
+   </script>
+</body>
+
+</html>
