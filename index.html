@@ -4,15 +4,44 @@
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>ITT Dashboard · Карітас</title>
+   <title>ITT Звіт · C4U4 · Карітас України</title>
+   <link rel="icon" type="image/png" href="data:image/png;base64,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">
    <script src="https://cdn.tailwindcss.com"></script>
    <style>
+      /* =====================================================================
+         ДИЗАЙН-ТОКЕНИ
+         ===================================================================== */
       :root {
-         --caritas-blue: #0083CB;
-         --caritas-yellow: #FECC40;
+         color-scheme: light;
+         --blue: #0083CB;
+         --blue-dark: #006aa5;
+         --blue-soft: #e6f3fb;
+         --yellow: #FECC40;
+         --ink: #0f172a;
+         --ink-2: #475569;
+         --ink-3: #94a3b8;
+         --line: #e2e8f0;
+         --bg: #f4f6f9;
+         --card: #ffffff;
+         --ok: #15803d;
+         --warn: #b45309;
+         --bad: #b91c1c;
+
+         /* серії для графіків (перевірено на дальтонізм) */
+         --s1: #0083CB;
+         --s2: #1baf7a;
+         --s3: #eb6834;
+         --track: #edf1f5;
+
          --itt-red: #c00000;
-         --col1: 320px;
+         --col1: 330px;
          --col2: 230px;
+         --radius: 14px;
+         --shadow: 0 1px 2px rgba(15, 23, 42, .06), 0 4px 16px rgba(15, 23, 42, .06);
+      }
+
+      * {
+         box-sizing: border-box;
       }
 
       .hidden {
@@ -20,13 +49,384 @@
       }
 
       body {
+         margin: 0;
+         background: var(--bg);
+         color: var(--ink);
          font-family: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+         -webkit-font-smoothing: antialiased;
       }
 
-      /* ---------- Таблиця у стилі Excel ITT ---------- */
+      .tabular {
+         font-variant-numeric: tabular-nums;
+      }
+
+      /* =====================================================================
+         ШАПКА
+         ===================================================================== */
+      .app-header {
+         position: sticky;
+         top: 0;
+         z-index: 40;
+         background: #fff;
+         border-bottom: 1px solid var(--line);
+      }
+
+      .app-header .bar {
+         display: flex;
+         align-items: center;
+         gap: 16px;
+         padding: 12px 24px 0;
+         flex-wrap: wrap;
+      }
+
+      .brand {
+         display: flex;
+         align-items: center;
+         gap: 12px;
+      }
+
+      .brand img {
+         width: 40px;
+         height: 40px;
+      }
+
+      .brand .title {
+         font-size: 18px;
+         font-weight: 700;
+         line-height: 1.15;
+      }
+
+      .brand .sub {
+         font-size: 12px;
+         color: var(--ink-2);
+      }
+
+      .status-pill {
+         display: inline-flex;
+         align-items: center;
+         gap: 8px;
+         font-size: 12px;
+         color: var(--ink-2);
+         background: var(--bg);
+         border: 1px solid var(--line);
+         border-radius: 999px;
+         padding: 6px 12px;
+      }
+
+      .dot {
+         width: 8px;
+         height: 8px;
+         border-radius: 50%;
+         background: var(--ink-3);
+      }
+
+      .dot.ok {
+         background: #22c55e;
+         box-shadow: 0 0 0 3px rgba(34, 197, 94, .18);
+      }
+
+      .dot.busy {
+         background: var(--blue);
+         animation: pulse 1s infinite;
+      }
+
+      .dot.err {
+         background: var(--bad);
+      }
+
+      @keyframes pulse {
+         50% {
+            opacity: .3;
+         }
+      }
+
+      .tabs {
+         display: flex;
+         gap: 4px;
+         padding: 8px 24px 0;
+         overflow-x: auto;
+      }
+
+      .tab-btn {
+         position: relative;
+         display: inline-flex;
+         align-items: center;
+         gap: 8px;
+         padding: 10px 14px 12px;
+         font-size: 14px;
+         font-weight: 600;
+         color: var(--ink-2);
+         background: none;
+         border: 0;
+         cursor: pointer;
+         white-space: nowrap;
+      }
+
+      .tab-btn::after {
+         content: "";
+         position: absolute;
+         left: 10px;
+         right: 10px;
+         bottom: 0;
+         height: 3px;
+         border-radius: 3px 3px 0 0;
+         background: transparent;
+         transition: background .2s;
+      }
+
+      .tab-btn:hover {
+         color: var(--blue);
+      }
+
+      .tab-btn.active {
+         color: var(--blue);
+      }
+
+      .tab-btn.active::after {
+         background: var(--blue);
+      }
+
+      .tab-btn svg {
+         width: 18px;
+         height: 18px;
+      }
+
+      .badge {
+         min-width: 20px;
+         padding: 1px 7px;
+         border-radius: 999px;
+         font-size: 11px;
+         font-weight: 700;
+         background: #fde68a;
+         color: #78350f;
+      }
+
+      .badge.bad {
+         background: #fecaca;
+         color: #7f1d1d;
+      }
+
+      .progress-line {
+         position: absolute;
+         left: 0;
+         bottom: -1px;
+         height: 2px;
+         width: 30%;
+         background: var(--blue);
+         animation: slide 1.1s ease-in-out infinite;
+      }
+
+      @keyframes slide {
+         0% {
+            left: -30%;
+         }
+
+         100% {
+            left: 100%;
+         }
+      }
+
+      /* =====================================================================
+         КНОПКИ, ПОЛЯ, КАРТКИ
+         ===================================================================== */
+      .btn {
+         display: inline-flex;
+         align-items: center;
+         gap: 6px;
+         padding: 8px 13px;
+         border-radius: 10px;
+         font-size: 13px;
+         font-weight: 600;
+         color: var(--ink);
+         border: 1px solid var(--line);
+         background: #fff;
+         cursor: pointer;
+         transition: background .15s, border-color .15s, transform .05s;
+         white-space: nowrap;
+      }
+
+      .btn:hover {
+         background: #f8fafc;
+         border-color: #cbd5e1;
+      }
+
+      .btn:active {
+         transform: translateY(1px);
+      }
+
+      .btn:disabled {
+         opacity: .55;
+         cursor: default;
+      }
+
+      .btn svg {
+         width: 16px;
+         height: 16px;
+      }
+
+      .btn-primary {
+         background: var(--blue);
+         color: #fff;
+         border-color: var(--blue);
+      }
+
+      .btn-primary:hover {
+         background: var(--blue-dark);
+         border-color: var(--blue-dark);
+      }
+
+      .field {
+         display: inline-flex;
+         align-items: center;
+         gap: 8px;
+         font-size: 13px;
+         font-weight: 600;
+         color: var(--ink-2);
+      }
+
+      .select,
+      .input {
+         height: 36px;
+         border: 1px solid var(--line);
+         border-radius: 10px;
+         background: #fff;
+         padding: 0 10px;
+         font-size: 14px;
+         color: var(--ink);
+         outline: none;
+      }
+
+      .select:focus,
+      .input:focus {
+         border-color: var(--blue);
+         box-shadow: 0 0 0 3px var(--blue-soft);
+      }
+
+      .switch {
+         display: inline-flex;
+         align-items: center;
+         gap: 8px;
+         font-size: 13px;
+         color: var(--ink-2);
+         cursor: pointer;
+         user-select: none;
+      }
+
+      .switch input {
+         appearance: none;
+         width: 34px;
+         height: 20px;
+         border-radius: 999px;
+         background: #cbd5e1;
+         position: relative;
+         cursor: pointer;
+         transition: background .2s;
+      }
+
+      .switch input::after {
+         content: "";
+         position: absolute;
+         top: 2px;
+         left: 2px;
+         width: 16px;
+         height: 16px;
+         border-radius: 50%;
+         background: #fff;
+         box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+         transition: transform .2s;
+      }
+
+      .switch input:checked {
+         background: var(--blue);
+      }
+
+      .switch input:checked::after {
+         transform: translateX(14px);
+      }
+
+      .card {
+         background: var(--card);
+         border: 1px solid var(--line);
+         border-radius: var(--radius);
+         box-shadow: var(--shadow);
+      }
+
+      .card-h {
+         display: flex;
+         align-items: baseline;
+         gap: 8px;
+         flex-wrap: wrap;
+         padding: 16px 18px 4px;
+      }
+
+      .card-h h3 {
+         margin: 0;
+         font-size: 15px;
+         font-weight: 700;
+      }
+
+      .card-h .muted {
+         font-size: 12px;
+         color: var(--ink-3);
+      }
+
+      .toolbar {
+         display: flex;
+         flex-wrap: wrap;
+         align-items: center;
+         gap: 12px;
+         padding: 12px 14px;
+         margin-bottom: 14px;
+      }
+
+      .segmented {
+         display: inline-flex;
+         background: var(--bg);
+         border: 1px solid var(--line);
+         border-radius: 10px;
+         padding: 3px;
+      }
+
+      .segmented button {
+         border: 0;
+         background: none;
+         padding: 6px 14px;
+         border-radius: 8px;
+         font-size: 13px;
+         font-weight: 600;
+         color: var(--ink-2);
+         cursor: pointer;
+         transition: background .2s, color .2s;
+      }
+
+      .segmented button.active {
+         background: #fff;
+         color: var(--blue);
+         box-shadow: 0 1px 3px rgba(15, 23, 42, .12);
+      }
+
+      .help {
+         font-size: 12px;
+         color: var(--ink-2);
+      }
+
+      .help kbd {
+         font-family: inherit;
+         font-size: 11px;
+         background: #fff;
+         border: 1px solid var(--line);
+         border-bottom-width: 2px;
+         border-radius: 5px;
+         padding: 0 5px;
+      }
+
+      /* =====================================================================
+         ТАБЛИЦЯ ITT (стиль Excel-шаблону)
+         ===================================================================== */
       #table-wrap {
-         max-height: calc(100vh - 250px);
+         max-height: calc(100vh - 235px);
          overflow: auto;
+         border-radius: var(--radius);
       }
 
       table.itt {
@@ -132,6 +532,13 @@
          text-align: center;
       }
 
+      .bg-itt-snap {
+         background-color: #fff;
+         font-weight: bold;
+         text-align: center;
+         font-size: 15px !important;
+      }
+
       .tc {
          text-align: center;
       }
@@ -140,6 +547,7 @@
          text-align: center;
          cursor: cell;
          user-select: none;
+         font-variant-numeric: tabular-nums;
       }
 
       td.num.zero {
@@ -169,136 +577,502 @@
          filter: brightness(0.96);
       }
 
-      .chip {
-         display: inline-flex;
+      /* =====================================================================
+         ЗАВАНТАЖЕННЯ
+         ===================================================================== */
+      .loader {
+         display: flex;
+         flex-direction: column;
          align-items: center;
+         justify-content: center;
+         gap: 14px;
+         padding: 80px 20px;
+         color: var(--ink-2);
+         text-align: center;
+      }
+
+      .spinner {
+         width: 44px;
+         height: 44px;
+         border-radius: 50%;
+         border: 4px solid var(--blue-soft);
+         border-top-color: var(--blue);
+         animation: spin .8s linear infinite;
+      }
+
+      @keyframes spin {
+         to {
+            transform: rotate(360deg);
+         }
+      }
+
+      /* =====================================================================
+         ГРАФІКИ (звіт Ярини)
+         ===================================================================== */
+      .gauge-card {
+         display: flex;
+         align-items: center;
+         gap: 16px;
+         padding: 16px 18px;
+      }
+
+      .gauge {
+         flex: none;
+         width: 104px;
+         height: 104px;
+         position: relative;
+      }
+
+      .gauge svg {
+         width: 100%;
+         height: 100%;
+         transform: rotate(-90deg);
+      }
+
+      .gauge .val {
+         position: absolute;
+         inset: 0;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         font-size: 16px;
+         font-weight: 800;
+         color: var(--ink);
+      }
+
+      .arc {
+         transition: stroke-dasharray 1.1s cubic-bezier(.22, 1, .36, 1);
+      }
+
+      .donut-wrap {
+         display: flex;
+         align-items: center;
+         gap: 22px;
+         padding: 8px 18px 18px;
+         flex-wrap: wrap;
+      }
+
+      .donut {
+         position: relative;
+         width: 210px;
+         height: 210px;
+         flex: none;
+      }
+
+      .donut svg {
+         width: 100%;
+         height: 100%;
+         transform: rotate(-90deg);
+      }
+
+      .donut .seg {
+         cursor: pointer;
+         transition: stroke-dasharray 1.1s cubic-bezier(.22, 1, .36, 1), opacity .2s, stroke-width .2s;
+      }
+
+      .donut.hovering .seg:not(.hot) {
+         opacity: .35;
+      }
+
+      .donut .seg.hot {
+         stroke-width: 27;
+      }
+
+      .donut .center {
+         position: absolute;
+         inset: 0;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         justify-content: center;
+         pointer-events: none;
+      }
+
+      .donut .center b {
+         font-size: 30px;
+         font-weight: 800;
+      }
+
+      .donut .center span {
+         font-size: 12px;
+         color: var(--ink-2);
+      }
+
+      .legend {
+         flex: 1;
+         min-width: 220px;
+         display: flex;
+         flex-direction: column;
          gap: 6px;
       }
 
-      .btn {
-         display: inline-flex;
+      .legend-row {
+         display: grid;
+         grid-template-columns: 12px 1fr auto auto;
          align-items: center;
-         gap: 6px;
-         padding: 7px 12px;
+         gap: 10px;
+         padding: 8px 10px;
+         border-radius: 10px;
+         font-size: 13px;
+         cursor: default;
+         transition: background .15s;
+      }
+
+      .legend-row:hover,
+      .legend-row.hot {
+         background: var(--bg);
+      }
+
+      .sw {
+         width: 12px;
+         height: 12px;
+         border-radius: 4px;
+      }
+
+      .legend-row .v {
+         font-weight: 700;
+      }
+
+      .legend-row .p {
+         color: var(--ink-2);
+         width: 46px;
+         text-align: right;
+      }
+
+      .hbars {
+         display: flex;
+         flex-direction: column;
+         gap: 4px;
+         padding: 8px 18px 18px;
+      }
+
+      .hbar {
+         display: grid;
+         grid-template-columns: minmax(150px, 38%) 1fr 64px;
+         align-items: center;
+         gap: 12px;
+         padding: 5px 6px;
          border-radius: 8px;
          font-size: 13px;
-         font-weight: 600;
-         border: 1px solid #d1d5db;
-         background: #fff;
-         transition: background .15s;
-         white-space: nowrap;
       }
 
-      .btn:hover {
-         background: #f3f4f6;
+      .hbar:hover {
+         background: var(--bg);
       }
 
-      .btn-primary {
-         background: var(--caritas-blue);
+      .hbar .lbl {
+         color: var(--ink);
+         line-height: 1.25;
+         display: -webkit-box;
+         -webkit-line-clamp: 2;
+         -webkit-box-orient: vertical;
+         overflow: hidden;
+      }
+
+      .hbar .trk {
+         height: 12px;
+         background: var(--track);
+         border-radius: 4px;
+         overflow: hidden;
+      }
+
+      .hbar .fill {
+         height: 100%;
+         width: 0;
+         border-radius: 0 4px 4px 0;
+         background: var(--s1);
+         transition: width 1s cubic-bezier(.22, 1, .36, 1);
+      }
+
+      .hbar .val {
+         text-align: right;
+         font-weight: 700;
+      }
+
+      .hbar.zero .val {
+         color: var(--ink-3);
+      }
+
+      .fade-in {
+         animation: fadeUp .5s cubic-bezier(.22, 1, .36, 1) both;
+      }
+
+      @keyframes fadeUp {
+         from {
+            opacity: 0;
+            transform: translateY(8px);
+         }
+
+         to {
+            opacity: 1;
+            transform: none;
+         }
+      }
+
+      #tip {
+         position: fixed;
+         z-index: 90;
+         pointer-events: none;
+         background: #0f172a;
          color: #fff;
-         border-color: var(--caritas-blue);
+         font-size: 12px;
+         line-height: 1.4;
+         padding: 8px 10px;
+         border-radius: 8px;
+         max-width: 300px;
+         box-shadow: 0 6px 20px rgba(0, 0, 0, .25);
+         opacity: 0;
+         transition: opacity .12s;
       }
 
-      .btn-primary:hover {
-         background: #006da9;
+      #tip b {
+         font-size: 13px;
       }
 
-      .btn-warn {
-         border-color: #f59e0b;
-         color: #92400e;
-         background: #fffbeb;
+      /* =====================================================================
+         ПЕРЕВІРКА ДАНИХ
+         ===================================================================== */
+      .check-tile {
+         display: flex;
+         gap: 12px;
+         align-items: flex-start;
+         padding: 16px;
       }
 
-      .btn-warn:hover {
+      .check-ico {
+         flex: none;
+         width: 36px;
+         height: 36px;
+         border-radius: 10px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         font-weight: 800;
+      }
+
+      .check-ico.ok {
+         background: #dcfce7;
+         color: var(--ok);
+      }
+
+      .check-ico.warn {
          background: #fef3c7;
+         color: var(--warn);
+      }
+
+      .check-ico.bad {
+         background: #fee2e2;
+         color: var(--bad);
+      }
+
+      .wtable {
+         width: 100%;
+         border-collapse: collapse;
+         font-size: 13px;
+      }
+
+      .wtable th {
+         text-align: left;
+         font-size: 12px;
+         color: var(--ink-2);
+         font-weight: 600;
+         padding: 10px 14px;
+         border-bottom: 1px solid var(--line);
+      }
+
+      .wtable td {
+         padding: 10px 14px;
+         border-bottom: 1px solid var(--line);
+         vertical-align: top;
+      }
+
+      .wtable tr:last-child td {
+         border-bottom: 0;
+      }
+
+      .ids {
+         font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+         font-size: 11px;
+         color: var(--ink-2);
+         word-break: break-all;
+         margin-top: 6px;
       }
 
       .modal-bg {
          background: rgba(15, 23, 42, .55);
       }
+
+      @media (prefers-reduced-motion: reduce) {
+
+         *,
+         *::before,
+         *::after {
+            animation-duration: .01ms !important;
+            transition-duration: .01ms !important;
+         }
+      }
    </style>
 </head>
 
-<body class="bg-gray-100 text-gray-900 pb-20">
+<body>
 
-   <!-- ===== Шапка ===== -->
-   <header class="text-white" style="background: var(--caritas-blue);">
-      <div class="px-6 py-3 flex flex-wrap items-center gap-x-6 gap-y-2">
-         <div class="flex items-center gap-3">
+   <!-- ===================== ШАПКА ===================== -->
+   <header class="app-header">
+      <div class="bar">
+         <div class="brand">
+            <img src="data:image/png;base64,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" alt="Карітас України">
             <div>
-               <div class="text-lg font-bold leading-tight">ITT Звіт - C4U4</div>
-               <div class="text-xs opacity-80 leading-tight">Карітас України</div>
+               <div class="title">ITT Звіт · C4U4</div>
+               <div class="sub">Карітас України · моніторинг показників проєкту</div>
             </div>
          </div>
-         <div id="meta-line" class="text-xs opacity-90 ml-auto"></div>
+         <div class="ml-auto flex items-center gap-3 flex-wrap">
+            <span class="status-pill" title="Стан даних"><span id="status-dot" class="dot busy"></span><span
+                  id="meta-line">Завантаження…</span></span>
+            <button class="btn btn-primary" id="btn-refresh">
+               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path d="M21 12a9 9 0 1 1-2.64-6.36" />
+                  <path d="M21 3v6h-6" />
+               </svg>
+               Оновити дані
+            </button>
+         </div>
       </div>
+      <nav class="tabs" role="tablist">
+         <button class="tab-btn active" data-tab="itt" role="tab">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+               <rect x="3" y="4" width="18" height="16" rx="2" />
+               <path d="M3 10h18M9 4v16" />
+            </svg>
+            ITT звіт
+         </button>
+         <button class="tab-btn" data-tab="yaryna" role="tab">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+               <path d="M21 12A9 9 0 1 1 12 3v9z" />
+               <path d="M15 3.5A9 9 0 0 1 20.5 9H15z" />
+            </svg>
+            Звіт Ярини
+         </button>
+         <button class="tab-btn" data-tab="check" role="tab">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+               <path d="M9 12l2 2 4-4" />
+               <path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z" />
+            </svg>
+            Перевірка даних
+            <span id="check-badge" class="badge hidden"></span>
+         </button>
+      </nav>
+      <div id="progress" class="progress-line hidden"></div>
    </header>
 
-   <main class="px-6 pt-4">
+   <main class="px-6 pt-5 pb-16">
 
-      <!-- ===== Панель інструментів ===== -->
-      <div class="bg-white rounded-xl shadow p-3 mb-3 flex flex-wrap items-center gap-3">
-         <label class="chip text-sm font-semibold">Рік
-            <select id="year-select" class="border rounded-md px-2 py-1 text-sm"></select>
-         </label>
-         <label id="location-wrap" class="chip text-sm font-semibold hidden">Локація
-            <select id="location-select" class="border rounded-md px-2 py-1 text-sm"></select>
-         </label>
-         <input id="search" type="search" placeholder="🔍 Пошук індикатора (напр. 1.3 або legal)"
-            class="border rounded-md px-3 py-1.5 text-sm w-72">
-         <label class="chip text-sm"><input id="opt-total" type="checkbox"> Колонка «Разом за рік»</label>
-         <label class="chip text-sm"><input id="opt-compact" type="checkbox"> Лише рядки Total</label>
+      <!-- Перше завантаження / помилка -->
+      <div id="loading" class="card loader">
+         <div class="spinner"></div>
+         <div class="font-semibold text-gray-700">Завантажую дані з Google Таблиці…</div>
+         <div class="text-sm"><span id="load-timer">0</span> с</div>
+      </div>
 
-         <div class="ml-auto flex flex-wrap gap-2">
-            <button id="btn-check" class="btn" title="Що не потрапило у звіт і чому">🩺 Перевірка даних</button>
-            <button id="btn-copy" class="btn" title="Скопіювати всю таблицю для вставки в ITT.xlsx">📋 Копіювати
-               таблицю</button>
-            <button id="btn-xls" class="btn">⬇️ Excel</button>
-            <button id="btn-refresh" class="btn btn-primary">⟳ Оновити дані</button>
+      <!-- ===================== ВКЛАДКА: ITT ===================== -->
+      <section id="tab-itt" class="tab-pane hidden">
+         <div class="card toolbar">
+            <label class="field">Рік
+               <select id="year-select" class="select"></select>
+            </label>
+            <label id="location-wrap" class="field hidden">Локація
+               <select id="location-select" class="select"></select>
+            </label>
+            <input id="search" type="search" class="input w-72" placeholder="Пошук індикатора: 1.3, legal, repair…">
+            <label class="switch"><input id="opt-total" type="checkbox"> Разом за рік</label>
+            <label class="switch"><input id="opt-compact" type="checkbox"> Лише Total</label>
+
+            <div class="ml-auto flex flex-wrap gap-2">
+               <button id="btn-copy" class="btn" title="Скопіювати всю таблицю для вставки в ITT.xlsx">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                     <rect x="9" y="9" width="12" height="12" rx="2" />
+                     <path d="M5 15V5a2 2 0 0 1 2-2h10" />
+                  </svg>
+                  Копіювати таблицю
+               </button>
+               <button id="btn-xls" class="btn">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                     <path d="M12 3v12M7 10l5 5 5-5M5 21h14" />
+                  </svg>
+                  Excel
+               </button>
+            </div>
          </div>
-      </div>
 
-      <!-- ===== Короткі підсумки ===== -->
-      <div id="kpis" class="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-3"></div>
-
-      <div id="loading" class="text-blue-700 font-semibold mb-3 bg-blue-100 p-4 rounded-lg">
-         ⏳ Завантаження та обробка масиву даних… <span id="load-timer">0</span> с
-      </div>
-
-      <div class="bg-white shadow-xl rounded-xl p-2">
-         <div id="table-wrap">
-            <table id="dashboard-table" class="itt hidden">
-               <thead id="dashboard-head"></thead>
-               <tbody id="dashboard-body"></tbody>
-            </table>
+         <div class="card p-2">
+            <div id="table-wrap">
+               <table id="dashboard-table" class="itt">
+                  <thead id="dashboard-head"></thead>
+                  <tbody id="dashboard-body"></tbody>
+               </table>
+            </div>
          </div>
-      </div>
 
-      <p class="text-xs text-gray-500 mt-2">
-         💡 Тягни мишкою — виділення прямокутником · <b>Shift</b>+клік — розширити · <b>Ctrl/⌘</b>+клік — додати
-         клітинку · клік по місяцю — увесь стовпець · <b>Ctrl/⌘+C</b> — копіювати виділене · <b>подвійний клік</b> по
-         числу — хто саме порахований · <b>Esc</b> — зняти виділення
-      </p>
+         <p class="help mt-3">
+            <kbd>тягни мишкою</kbd> виділення ·
+            <kbd>Shift</kbd>+клік розширити ·
+            <kbd>Ctrl/⌘</kbd>+клік додати клітинку ·
+            клік по місяцю — увесь стовпець ·
+            <kbd>Ctrl/⌘</kbd>+<kbd>C</kbd> копіювати виділене ·
+            <b>подвійний клік</b> по числу — хто саме порахований ·
+            <kbd>Esc</kbd> зняти виділення
+         </p>
+      </section>
+
+      <!-- ===================== ВКЛАДКА: ЗВІТ ЯРИНИ ===================== -->
+      <section id="tab-yaryna" class="tab-pane hidden">
+         <div class="card toolbar">
+            <div class="segmented" id="y-group">
+               <button data-g="0" class="active">Домогосподарства</button>
+               <button data-g="1">Члени родини</button>
+            </div>
+            <span class="help">Дані з аркуша DATA_2 · за весь проєкт</span>
+            <div class="ml-auto">
+               <button id="btn-copy-y" class="btn">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                     <rect x="9" y="9" width="12" height="12" rx="2" />
+                     <path d="M5 15V5a2 2 0 0 1 2-2h10" />
+                  </svg>
+                  Копіювати для Excel
+               </button>
+            </div>
+         </div>
+         <div id="yaryna-body"></div>
+      </section>
+
+      <!-- ===================== ВКЛАДКА: ПЕРЕВІРКА ДАНИХ ===================== -->
+      <section id="tab-check" class="tab-pane hidden">
+         <div id="check-body"></div>
+      </section>
    </main>
 
-   <!-- ===== Панель статистики (як у Google Sheets) ===== -->
+   <!-- Панель статистики виділення (як у Google Sheets) -->
    <div id="sheets-statusbar"
-      class="fixed bottom-4 right-4 bg-gray-900 text-white px-4 py-2 rounded-lg shadow-2xl text-xs font-mono flex gap-4 items-center opacity-0 transition-opacity duration-200 pointer-events-none z-50">
-      <div>Сума: <span id="stat-sum" class="font-bold text-green-400">0</span></div>
-      <div>Кількість: <span id="stat-count" class="font-bold text-blue-400">0</span></div>
-      <div>Середня: <span id="stat-avg" class="font-bold text-yellow-400">0</span></div>
-      <div>Мін: <span id="stat-min" class="font-bold text-gray-300">0</span></div>
-      <div>Макс: <span id="stat-max" class="font-bold text-gray-300">0</span></div>
+      class="fixed bottom-4 right-4 bg-slate-900 text-white px-4 py-2 rounded-xl shadow-2xl text-xs flex gap-4 items-center opacity-0 transition-opacity duration-200 pointer-events-none z-50 tabular">
+      <div>Сума <b id="stat-sum" class="text-green-400">0</b></div>
+      <div>Кількість <b id="stat-count" class="text-sky-400">0</b></div>
+      <div>Середня <b id="stat-avg" class="text-yellow-300">0</b></div>
+      <div>Мін <b id="stat-min" class="text-slate-300">0</b></div>
+      <div>Макс <b id="stat-max" class="text-slate-300">0</b></div>
    </div>
 
-   <!-- ===== Тост ===== -->
+   <!-- Тост -->
    <div id="toast"
-      class="fixed bottom-4 left-1/2 -translate-x-1/2 bg-green-600 text-white px-4 py-2 rounded-lg shadow-xl text-sm opacity-0 transition-opacity duration-200 pointer-events-none z-50">
+      class="fixed bottom-4 left-1/2 -translate-x-1/2 bg-green-600 text-white px-4 py-2 rounded-xl shadow-xl text-sm opacity-0 transition-opacity duration-200 pointer-events-none z-50">
    </div>
 
-   <!-- ===== Модальне вікно ===== -->
+   <!-- Підказка для графіків -->
+   <div id="tip"></div>
+
+   <!-- Модальне вікно (деталізація по клітинці) -->
    <div id="modal" class="fixed inset-0 modal-bg hidden z-[60] flex items-center justify-center p-4">
-      <div class="bg-white rounded-xl shadow-2xl w-full max-w-3xl max-h-[85vh] flex flex-col">
+      <div class="bg-white rounded-2xl shadow-2xl w-full max-w-3xl max-h-[85vh] flex flex-col">
          <div class="flex items-start gap-3 p-4 border-b">
             <div id="modal-title" class="font-bold text-base flex-1"></div>
             <button id="modal-close" class="text-gray-500 hover:text-black text-xl leading-none">✕</button>
@@ -312,25 +1086,26 @@
          НАЛАШТУВАННЯ
          ===================================================================== */
       const CONFIG = {
-         API_URL: 'https://script.google.com/macros/s/AKfycbyqyfJXwztH7Jh9dlv-Xv9GJugwtoYsewVcjnGbQlsUxPFQBkYZoumjg5l1MnUisZh_4g/exec',
+         API_URL: 'https://script.google.com/macros/s/AKfycbxZHlV2TL6Bf-OZ_hAU1ttSnZFSywCiik3XV5ar0wQkdeDZBHHWlf2ASsx0KYxNFrEsTA/exec',
 
          // Десятковий роздільник для відсотків (для української Excel — кома)
          DECIMAL: ',',
 
-         // 1.1.d / 1.1.e: рахувати перенаправлення лише для ПОВНИХ кейсів?
-         // false = усі кейси [case] з датою перенаправлення (як в ТЗ)
+         // 1.1.d / 1.1.e: рахувати перенаправлення лише для ПОВНИХ кейсів? (false = усі кейси [case])
          REFERRALS_ONLY_FULL_CASES: false,
 
-         // 2.1.c REGISTERED+ONGOING: рахувати лише родини, що реально зареєстровані на ремонт
-         // (заповнено Прайс / АВР у [repair cash] або [contractor]).
-         // false = усі анкети без дати завершення робіт (буде дуже завищено)
+         // 2.1.a / 2.1.c REGISTERED+ONGOING: лише родини, зареєстровані на ремонт
+         // (заповнено Прайс / АВР у [repair cash] або [contractor]). false = усі анкети без дати завершення
          ONGOING_REPAIR_REQUIRES_MARK: true,
 
-         // Вразливість (PwDs) стосується лише голови ДГ (так у DATA)
+         // PwDs — лише голова ДГ (колонка «Вразливість» стосується голови ДГ)
          PWD_ONLY_HOH: true,
 
-         // Етнічна меншина — питання про "вас чи когось із членів родини" → застосовуємо до всієї родини
+         // Етнічна меншина — питання про «вас чи когось із членів родини» → на всю родину
          ETHNIC_ALL_MEMBERS: true,
+
+         // Referrals (incoming): рахуємо голову ДГ. true = усіх членів родини
+         INCOMING_REFERRAL_ALL_MEMBERS: false,
       };
 
       /* =====================================================================
@@ -340,16 +1115,19 @@
       const ETH = "Diverse ethnic background (e.g. Third-Country Nationals, Roma, ...)";
       const CATS = ["Total", "Male", "Female", "18-39", "39-49", "50+", "PwDs", "IDPs", "Returnee", "Host community members", ETH];
 
-      // Відповідність колонок DATA (декілька варіантів назви на випадок розбіжностей)
+      // Відповідність колонок DATA (кілька варіантів назви на випадок розбіжностей)
       const COLS = {
          id: ['_id'],
          caseType: ['Тип кейсу [case]'],
          caseStatus: ['Статус кейса (Загально) [case]'],
          caseLast: ['Дата останньої консультації [case]'],
+         caseFirst: ['Дата першої консультації [case]'],
          caseSum: ['Сума до виплати [case]'],
          casePay: ['Дата оплати [case]'],
          refInt: ['Дата першого перенаправлення [case]', 'Дата першого перенаправлення внутрішнього [case]'],
          refExt: ['Дата першого перенаправлення зовнішнього [case]'],
+         refSource: [{ contains: 'з яких джерел' }],
+         refOther: [{ contains: 'напишіть звідки' }],
          lawStatus: ['Статус [lawyer]'],
          lawLast: ['Дата останньої активності [lawyer]'],
          lawType: ['Тип Супроводу [lawyer]'],
@@ -373,10 +1151,18 @@
          ethnic: [{ contains: 'етнічних меншин' }],
          location: [{ contains: 'локац' }],
       };
-      const OPTIONAL_COLS = ['location'];
+      const OPTIONAL_COLS = ['location', 'caseFirst'];
 
-      // 22 індикатори у порядку шаблону ITT
+      // Індикатори у порядку шаблону ITT
+      //   snapshot  — одне значення з DATA_2 (без місяців і розбивки)
+      //   totalOnly — лише рядок Total
+      //   pct       — відсоток num / сума(den)
+      //   data3     — дані з аркуша DATA_3 (МЗК)
       const INDICATORS = [
+         { id: 'inc_m', name: 'Inclusion: % of participants with disabilities participating in project activities (По всіх членах родини)', snapshot: 'members' },
+         { id: 'inc_h', name: 'Inclusion: % of participants with disabilities participating in project activities (По домогосподарствах)', snapshot: 'hh' },
+         { id: 'inc_r', name: 'Inclusion: % of services provided to residents of rural communities', snapshot: 'rural' },
+         { id: 'ref_in', name: 'Referrals: # of people referred to Caritas (incoming referrals)' },
          { id: '1.1a_c', name: '1.1. a) Number of participants who received case management services (CLOSED)' },
          { id: '1.1a_a', name: '1.1. a) Number of participants who received case management services (ACTUAL)' },
          { id: '1.1b_c', name: '1.1. b) Number of participants who received individual protection counselling (CLOSED)' },
@@ -395,15 +1181,18 @@
          { id: '1.3e_a', name: '1.3. e) Number of participants who received legal representation in court and secondary legal aid (ACTUAL)' },
          { id: '1.4a_c', name: '1.4. a) Number of participants provided with evidence-based crisis intervention and counseling (CLOSED)' },
          { id: '1.4a_a', name: '1.4. a) Number of participants provided with evidence-based crisis intervention and counseling (ACTUAL)' },
-         { id: '2.1a', name: '2.1. a) Number of households provided with humanitarian assistance for shelter repair', totalOnly: true },
-         { id: '2.1b', name: '2.1. b) Number of households that benefited from the renovation of common areas in apartment buildings', comingSoon: true },
+         { id: '2.1a_f', name: '2.1. a) Number of households provided with humanitarian assistance for shelter repair (FINALISED)', totalOnly: true },
+         { id: '2.1a_r', name: '2.1. a) Number of households provided with humanitarian assistance for shelter repair (REGISTERED + ONGOING)', totalOnly: true },
+         { id: '2.1b_f', name: '2.1. b) Number of households that benefited from the renovation of common areas in apartment buildings (FINALISED)', totalOnly: true, data3: true },
+         { id: '2.1b_r', name: '2.1. b) Number of households that benefited from the renovation of common areas in apartment buildings (REGISTERED AND ONGOING)', totalOnly: true, data3: true },
          { id: '2.1c_f', name: '2.1. c) Number of people who benefited from humanitarian repairs and repairs of common areas in their apartment buildings (FINALISED REPAIRS)' },
          { id: '2.1c_r', name: '2.1. c) Number of people who benefited from humanitarian repairs and repairs of common areas in their apartment buildings (REGISTERED+ONGOING REPAIRS)' },
       ];
       const IND_BY_ID = Object.fromEntries(INDICATORS.map(i => [i.id, i]));
 
-      // Звідки береться дата для кожного індикатора (для підказок у "Перевірці даних")
+      // Звідки береться дата (для деталізації та перевірки)
       const DATE_SOURCE = {
+         'ref_in': 'Дата реєстрації бенефіціара (якщо порожня — Дата першої консультації [case])',
          '1.1a_c': 'Дата останньої консультації [case]', '1.1a_a': 'Дата останньої консультації [case]',
          '1.1b_c': 'Дата останньої консультації [case]', '1.1b_a': 'Дата останньої консультації [case]',
          '1.1d': 'Дата першого перенаправлення [case]', '1.1e': 'Дата першого перенаправлення зовнішнього [case]',
@@ -412,39 +1201,53 @@
          '1.3c_p': 'Дата оплати [lawyer]', '1.3c_r': 'Дата останньої активності [lawyer]',
          '1.3e_c': 'Дата останньої активності [lawyer]', '1.3e_a': 'Дата останньої активності [lawyer]',
          '1.4a_c': 'Дата останньої активності [pss]', '1.4a_a': 'Дата останньої активності [pss]',
-         '2.1a': 'Завершення робіт, дата [repair cash] / [contractor]', '2.1c_f': 'Завершення робіт, дата [repair cash] / [contractor]',
-         '2.1c_r': 'Дата реєстрації бенефіціара',
+         '2.1a_f': 'Завершення робіт, дата [repair cash] / [contractor]', '2.1a_r': 'Дата реєстрації бенефіціара',
+         '2.1b_f': 'DATA_3 → Завершення робіт, дата', '2.1b_r': 'DATA_3 → Дата заповнення анкети',
+         '2.1c_f': 'Завершення робіт, дата [repair cash] / [contractor]', '2.1c_r': 'Дата реєстрації бенефіціара',
       };
 
       /* =====================================================================
          СТАН
          ===================================================================== */
-      let RECORDS = [];         // нормалізовані анкети
+      let RECORDS = [];         // нормалізовані анкети з DATA
       let MISSING_COLS = [];    // колонки, яких не знайдено в DATA
-      let report = {};          // report[indId][YYYY-MM][cat] = [ {id, p} ... ]
+      let DATA2 = null;         // аркуш DATA_2 (відформатовані значення) або null
+      let DATA3 = null;         // аркуш DATA_3 (МЗК): [{id, done, form, location}] або null
+      let report = {};          // report[indId][YYYY-MM][cat] = [person, ...]
       let warnings = {};        // warnings[indId][reason] = [ids]
       let info = {};            // загальна статистика
       let lastLoad = null;
-      const ui = { year: null, location: '', search: '', showTotal: false, compact: false };
+      let loadedOnce = false;
+      const ui = { tab: 'itt', year: null, location: '', search: '', showTotal: false, compact: false, yGroup: 0 };
 
       const $ = id => document.getElementById(id);
+      const REDUCED_MOTION = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
       /* =====================================================================
          УТИЛІТИ
          ===================================================================== */
       const norm = s => String(s == null ? '' : s).toLowerCase().replace(/[’ʼ`‘]/g, "'").replace(/\s+/g, ' ').trim();
-      const low = v => norm(v);
+      const low = norm;
       const isEmpty = v => v === null || v === undefined || String(v).trim() === '';
       const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+      const fmtInt = n => Math.round(n).toLocaleString('uk-UA');
 
       function parseAmount(v) {
          if (typeof v === 'number') return v;
          if (isEmpty(v)) return 0;
-         const n = parseFloat(String(v).replace(/[\s ]/g, '').replace(',', '.').replace(/[^0-9.\-]/g, ''));
+         const n = parseFloat(String(v).replace(/[\s  ]/g, '').replace(',', '.').replace(/[^0-9.\-]/g, ''));
          return isNaN(n) ? 0 : n;
       }
 
-      // Повертає Date (локальну) або null. Підтримує yyyy-MM-dd, dd.MM.yyyy, dd/MM/yyyy, ISO з часом
+      // Число з відформатованого рядка: "1 352,00" → 1352, "27,61%" → 27.61
+      function toNumber(v) {
+         if (typeof v === 'number') return v;
+         const t = String(v == null ? '' : v).replace(/[\s  ]/g, '').replace('%', '').replace(',', '.');
+         const n = parseFloat(t);
+         return isNaN(n) ? null : n;
+      }
+
+      // Date (локальна) або null. yyyy-MM-dd, dd.MM.yyyy, dd/MM/yyyy, ISO з часом
       function parseDate(v) {
          if (isEmpty(v)) return null;
          if (v instanceof Date) return isNaN(v) ? null : v;
@@ -495,19 +1298,24 @@
          t.textContent = msg;
          t.style.opacity = '1';
          clearTimeout(t._h);
-         t._h = setTimeout(() => t.style.opacity = '0', 1800);
+         t._h = setTimeout(() => t.style.opacity = '0', 1900);
+      }
+
+      async function copyText(text, msg) {
+         try { await navigator.clipboard.writeText(text); toast(msg || '📋 Скопійовано'); }
+         catch { toast('Не вдалося скопіювати', 'bg-red-600'); }
       }
 
       /* =====================================================================
          ЗАВАНТАЖЕННЯ
          ===================================================================== */
       async function fetchData() {
-         const loading = $('loading');
-         loading.className = 'text-blue-700 font-semibold mb-3 bg-blue-100 p-4 rounded-lg';
-         loading.innerHTML = '⏳ Завантаження та обробка масиву даних… <span id="load-timer">0</span> с';
          const t0 = Date.now();
          const timer = setInterval(() => { const el = $('load-timer'); if (el) el.textContent = Math.round((Date.now() - t0) / 1000); }, 500);
          $('btn-refresh').disabled = true;
+         $('status-dot').className = 'dot busy';
+         $('meta-line').textContent = 'Завантаження…';
+         $('progress').classList.remove('hidden');
 
          try {
             const response = await fetch(CONFIG.API_URL);
@@ -516,27 +1324,36 @@
             if (raw && raw.error) throw new Error(raw.error);
 
             loadRecords(raw);
+            DATA2 = (raw && raw.data2 && Array.isArray(raw.data2.display)) ? raw.data2.display : null;
+            DATA3 = loadData3(raw && raw.data3);
             processAll();
             setupFilters();
-            render();
 
             lastLoad = { at: new Date(), secs: ((Date.now() - t0) / 1000).toFixed(1) };
-            loading.classList.add('hidden');
-            $('dashboard-table').classList.remove('hidden');
-            updateMeta();
+            loadedOnce = true;
+            $('loading').classList.add('hidden');
+            renderAll();
+            switchTab(ui.tab);
             if (MISSING_COLS.length) toast('⚠️ Не знайдено колонок: ' + MISSING_COLS.length + ' — див. «Перевірка даних»', 'bg-amber-600');
          } catch (error) {
             console.error('Помилка:', error);
-            loading.className = 'text-red-700 font-semibold mb-3 bg-red-100 p-4 rounded-lg';
-            loading.innerHTML = '❌ Помилка завантаження даних: ' + esc(error.message) +
-               '<div class="text-xs font-normal mt-1">Перевір, що в API_URL вставлено актуальне посилання /exec з доступом «Усі», і що скрипт розгорнуто.</div>';
+            $('status-dot').className = 'dot err';
+            $('meta-line').textContent = 'Помилка завантаження';
+            if (!loadedOnce) {
+               $('loading').innerHTML = `<div class="check-ico bad" style="width:48px;height:48px;font-size:22px">!</div>
+                  <div class="font-semibold text-gray-800">Не вдалося завантажити дані</div>
+                  <div class="text-sm max-w-xl">${esc(error.message)}<br>Перевір, що в API_URL вставлено актуальне посилання /exec з доступом «Усі» і що скрипт розгорнуто.</div>`;
+            } else {
+               toast('❌ Не вдалося оновити: ' + error.message, 'bg-red-600');
+            }
          } finally {
             clearInterval(timer);
             $('btn-refresh').disabled = false;
+            $('progress').classList.add('hidden');
          }
       }
 
-      // Підтримує і старий формат (масив об'єктів), і новий швидкий ({headers, rows})
+      // Підтримує і старий формат (масив об'єктів), і швидкий ({headers, rows})
       function loadRecords(raw) {
          let headers, getRow;
          if (Array.isArray(raw)) {
@@ -566,7 +1383,6 @@
             }
             resolved[key] = found;
             if (!found && !OPTIONAL_COLS.includes(key)) {
-               // для 1.1.d достатньо однієї з назв
                MISSING_COLS.push(typeof COLS[key][0] === 'string' ? COLS[key][0] : '…' + COLS[key][0].contains + '…');
             }
          }
@@ -585,11 +1401,7 @@
          ===================================================================== */
       function buildHousehold(rec) {
          const hohAge = parseInt(rec.age);
-         const hoh = {
-            id: rec.id, isHoH: true, idx: 0,
-            gender: parseGender(rec.gender),
-            age: isNaN(hohAge) ? null : hohAge,
-         };
+         const hoh = { id: rec.id, isHoH: true, idx: 0, gender: parseGender(rec.gender), age: isNaN(hohAge) ? null : hohAge };
 
          // "Жінка: 2008-03-05; Чоловік: 2015-09-10" (+ переноси рядків)
          const listed = [];
@@ -604,8 +1416,7 @@
             listed.push({ gender: g, age: ageFrom(birth) });
          });
 
-         // Якщо кількість у "Члени родини" == "Кількість членів домогосподарства",
-         // значить голова ДГ уже є у списку → прибираємо дубль
+         // Якщо у «Члени родини» стільки ж людей, скільки в «Кількість членів ДГ» — голова вже в списку
          let others = listed;
          const size = parseInt(rec.hhSize);
          if (!isNaN(size) && size > 0 && listed.length === size) {
@@ -618,7 +1429,6 @@
 
          const members = [hoh, ...others.map((m, i) => ({ id: rec.id, isHoH: false, idx: i + 1, gender: m.gender, age: m.age }))];
 
-         // Ознаки рівня домогосподарства
          const st = low(rec.status);
          const statusCat =
             (st.includes('внутрішньо') || st.includes('впо')) ? 'IDPs' :
@@ -651,6 +1461,33 @@
       }
 
       /* =====================================================================
+         DATA_3: МЗК (ремонт місць загального користування) → 2.1.b
+         ===================================================================== */
+      function loadData3(d3) {
+         info.data3Missing = [];
+         if (!d3 || !Array.isArray(d3.headers) || !Array.isArray(d3.rows)) return null;
+         const H = d3.headers.map(norm);
+         const find = test => H.findIndex(test);
+         const iDone = find(h => h.includes('завершення робіт'));
+         const iForm = find(h => h.includes('дата заповнення'));
+         const iId = find(h => h === '_id' || h === 'id');
+         const iLoc = find(h => h.includes('локац'));
+         info.data3Missing = [iDone < 0 ? 'Завершення робіт, дата' : null, iForm < 0 ? 'Дата заповнення анкети' : null].filter(Boolean);
+         return d3.rows
+            .map((r, k) => {
+               const rowNo = (d3.rowNumbers && d3.rowNumbers[k]) || k + 2;
+               return {
+                  id: iId >= 0 && !isEmpty(r[iId]) ? r[iId] : 'МЗК, рядок ' + rowNo,
+                  done: iDone >= 0 ? r[iDone] : '',
+                  form: iForm >= 0 ? r[iForm] : '',
+                  location: iLoc >= 0 ? r[iLoc] : '',
+               };
+            })
+            // пропускаємо повтори рядка заголовків (якщо дві бази склеєні разом)
+            .filter(x => !norm(x.done).includes('завершення робіт') && !norm(x.form).includes('дата заповнення'));
+      }
+
+      /* =====================================================================
          ПІДРАХУНОК
          ===================================================================== */
       function add(indId, dateVal, persons, rec) {
@@ -680,11 +1517,27 @@
 
          const recs = ui.location ? RECORDS.filter(r => String(r.location).trim() === ui.location) : RECORDS;
 
+         /* ---------- 2.1.b МЗК з DATA_3 (рядок = 1 домогосподарство) ---------- */
+         if (DATA3) {
+            const d3 = ui.location ? DATA3.filter(x => isEmpty(x.location) || String(x.location).trim() === ui.location) : DATA3;
+            d3.forEach(x => {
+               const hh = [{ id: x.id, isHoH: true, idx: 0, gender: null, age: null }];
+               if (!isEmpty(x.done)) add('2.1b_f', x.done, hh, x);
+               else add('2.1b_r', x.form, hh, x);
+            });
+         }
+
          recs.forEach(rec => {
             const hh = buildHousehold(rec);
             const hoh = hh[0];
             info.households++;
             info.persons += hh.length;
+
+            /* ---------- REFERRALS: будь-яка відповідь «звідки дізналися» = вхідне звернення ---------- */
+            if (!isEmpty(rec.refSource) || !isEmpty(rec.refOther)) {
+               const d = !isEmpty(rec.regDate) ? rec.regDate : rec.caseFirst;
+               add('ref_in', d, CONFIG.INCOMING_REFERRAL_ALL_MEMBERS ? hh : [hoh], rec);
+            }
 
             /* ---------- КЕЙС-МЕНЕДЖМЕНТ [case] ---------- */
             const type = low(rec.caseType);
@@ -693,17 +1546,13 @@
             const cs = low(rec.caseStatus);
             const caseClosed = cs.includes('закрит') || cs.includes('заверш');
 
-            // 1.1.a повні кейси (лише голова ДГ), дата — остання консультація
             if (isFull) add(caseClosed ? '1.1a_c' : '1.1a_a', rec.caseLast, [hoh], rec);
-            // 1.1.b консультативні кейси (лише голова ДГ)
             if (isCons) add(caseClosed ? '1.1b_c' : '1.1b_a', rec.caseLast, [hoh], rec);
 
-            // 1.1.d / 1.1.e перенаправлення (лише голова ДГ), дата — перше перенаправлення
             const refOk = CONFIG.REFERRALS_ONLY_FULL_CASES ? isFull : true;
             if (refOk && !isEmpty(rec.refInt)) add('1.1d', rec.refInt, [hoh], rec);
             if (refOk && !isEmpty(rec.refExt)) add('1.1e', rec.refExt, [hoh], rec);
 
-            // 1.2.a грошова допомога кейса (УСІ члени родини)
             if (isFull && parseAmount(rec.caseSum) !== 0) {
                if (!isEmpty(rec.casePay)) add('1.2a_p', rec.casePay, hh, rec);
                else add('1.2a_r', rec.caseLast, hh, rec);
@@ -732,11 +1581,14 @@
             const rcDone = !isEmpty(rec.rcDone), ctDone = !isEmpty(rec.ctDone);
             if (rcDone || ctDone) {
                const d = rcDone ? rec.rcDone : rec.ctDone;
-               add('2.1a', d, [hoh], rec);       // домогосподарства, лише Total
-               add('2.1c_f', d, hh, rec);        // усі члени родини
+               add('2.1a_f', d, [hoh], rec);
+               add('2.1c_f', d, hh, rec);
             } else {
                const repairRegistered = [rec.rcPrice, rec.rcSum, rec.ctPrice, rec.ctSum].some(v => !isEmpty(v));
-               if (!CONFIG.ONGOING_REPAIR_REQUIRES_MARK || repairRegistered) add('2.1c_r', rec.regDate, hh, rec);
+               if (!CONFIG.ONGOING_REPAIR_REQUIRES_MARK || repairRegistered) {
+                  add('2.1a_r', rec.regDate, [hoh], rec);
+                  add('2.1c_r', rec.regDate, hh, rec);
+               }
             }
          });
       }
@@ -744,42 +1596,37 @@
       /* =====================================================================
          ЗНАЧЕННЯ КЛІТИНОК
          ===================================================================== */
+      const ymOf = (year, m) => `${year}-${String(m + 1).padStart(2, '0')}`;
       function count(indId, ym, cat) {
          const c = report[indId]?.[ym]?.[cat];
          return c ? c.length : 0;
       }
       function yearSum(indId, year, cat) {
          let s = 0;
-         for (let m = 1; m <= 12; m++) s += count(indId, `${year}-${String(m).padStart(2, '0')}`, cat);
+         for (let m = 0; m < 12; m++) s += count(indId, ymOf(year, m), cat);
          return s;
       }
-      // повертає { text, num }
       function cellValue(ind, year, monthIdx, cat) {
-         const get = (id) => monthIdx === 12 ? yearSum(id, year, cat) : count(id, `${year}-${String(monthIdx + 1).padStart(2, '0')}`, cat);
+         const get = id => monthIdx === 12 ? yearSum(id, year, cat) : count(id, ymOf(year, monthIdx), cat);
          if (ind.pct) {
             const num = get(ind.pct.num);
             const den = ind.pct.den.reduce((s, id) => s + get(id), 0);
-            return { text: fmtPct(num, den), num: den ? num / den * 100 : 0, zero: num === 0 };
+            return { text: fmtPct(num, den), zero: num === 0 };
          }
          const v = get(ind.id);
-         return { text: String(v), num: v, zero: v === 0 };
+         return { text: String(v), zero: v === 0 };
       }
 
       /* =====================================================================
          ФІЛЬТРИ
          ===================================================================== */
-      function availableYears() {
+      function setupFilters() {
          const ys = new Set();
          for (const id in report) for (const ym in report[id]) ys.add(+ym.slice(0, 4));
-         return [...ys].sort();
-      }
-
-      function setupFilters() {
-         const years = availableYears();
          const cur = new Date().getFullYear();
-         if (!years.includes(cur)) years.push(cur);
-         years.sort();
-         if (!ui.year || !years.includes(ui.year)) ui.year = years.includes(cur) ? cur : years[years.length - 1];
+         ys.add(cur);
+         const years = [...ys].sort();
+         if (!ui.year || !years.includes(ui.year)) ui.year = cur;
          $('year-select').innerHTML = years.map(y => `<option value="${y}" ${y === ui.year ? 'selected' : ''}>${y}</option>`).join('');
 
          if (info.hasLocation) {
@@ -796,7 +1643,25 @@
       }
 
       /* =====================================================================
-         ПОБУДОВА ТАБЛИЦІ (одна функція і для екрана, і для Excel)
+         DATA_2: показники Inclusion
+         ===================================================================== */
+      function data2InclusionStart() {
+         if (!DATA2) return -1;
+         return DATA2.findIndex(r => norm(r[0]).includes('inclusion'));
+      }
+      function snapshotValue(kind) {
+         if (!DATA2) return null;
+         const test = {
+            members: l => l.includes('inclusion') && l.includes('всіх член'),
+            hh: l => l.includes('inclusion') && l.includes('домогосподар'),
+            rural: l => l.includes('inclusion') && (l.includes('rural') || l.includes('сільськ')),
+         }[kind];
+         const row = DATA2.find(r => test(norm(r[0])));
+         return row && !isEmpty(row[1]) ? String(row[1]).trim() : null;
+      }
+
+      /* =====================================================================
+         ТАБЛИЦЯ ITT (одна функція і для екрана, і для Excel)
          ===================================================================== */
       const EXPORT_STYLE = {
          'bg-itt-red': 'background:#c00000;color:#fff;font-weight:bold;text-align:center;vertical-align:middle;',
@@ -807,6 +1672,7 @@
          'bg-itt-month': 'background:#c00000;color:#fff;font-weight:bold;text-align:center;',
          'bg-itt-yeartotal': 'background:#7f0000;color:#fff;font-weight:bold;text-align:center;',
          'bg-itt-soon': 'background:#f3f4f6;color:#6b7280;font-style:italic;text-align:center;',
+         'bg-itt-snap': 'background:#fff;font-weight:bold;text-align:center;',
          'num': 'text-align:center;',
          'tc': 'text-align:center;',
          'ytotal': 'background:#fff2cc;font-weight:bold;',
@@ -818,7 +1684,7 @@
          const attr = (classes, extra = '') => {
             if (!forExport) return `class="${classes}" ${extra}`;
             const st = classes.split(' ').map(c => EXPORT_STYLE[c] || '').join('') + 'border:1px solid #000;';
-            return `style="${st}" ${extra.replace(/data-[\w-]+="[^"]*"/g, '')}`;
+            return `style="${st}" ${extra.replace(/data-[\w-]+="[^"]*"/g, '').replace(/title="[^"]*"/g, '')}`;
          };
 
          let head = `<tr>
@@ -828,15 +1694,22 @@
          if (ui.showTotal) head += `<th ${attr('bg-itt-yeartotal', 'data-c="12"')}>Разом ${year}</th>`;
          head += `</tr>`;
 
+         const singleRow = (ind, cls, text, title = '') => `<tr><td ${attr('bg-itt-red sticky1')}>${esc(ind.name)}</td>
+            <td ${attr('bg-itt-gray sticky2 tc')}>Total</td>
+            <td ${attr(cls, `colspan="${cols}" ${title}`)}>${text}</td></tr>`;
+
          let body = '';
          let r = 0;
          visibleIndicators().forEach(ind => {
-            if (ind.comingSoon) {
-               body += `<tr><td ${attr('bg-itt-red sticky1')}>${esc(ind.name)}</td>
-                  <td ${attr('bg-itt-gray sticky2 tc')}>Total</td>
-                  <td ${attr('bg-itt-soon', `colspan="${cols}"`)}>Coming soon</td></tr>`;
+            if (ind.snapshot) {
+               const v = snapshotValue(ind.snapshot);
+               body += v
+                  ? singleRow(ind, 'bg-itt-snap', esc(v), 'title="Значення з аркуша DATA_2 — за весь проєкт, не залежить від року"')
+                  : singleRow(ind, 'bg-itt-soon', 'немає даних (аркуш DATA_2)');
                return;
             }
+            if (ind.data3 && !DATA3) { body += singleRow(ind, 'bg-itt-soon', 'немає даних (аркуш DATA_3)'); return; }
+
             const cats = (ind.totalOnly || ui.compact) ? ['Total'] : CATS;
             cats.forEach((cat, ci) => {
                const isTotal = cat === 'Total';
@@ -855,56 +1728,53 @@
          return { head, body };
       }
 
-      function render() {
+      function renderTable() {
          const { head, body } = buildTable(false);
          $('dashboard-head').innerHTML = head;
          $('dashboard-body').innerHTML = body;
          buildGrid();
          clearSelection();
-         renderKpis();
       }
 
-      function renderKpis() {
-         const y = ui.year;
-         const s = (...ids) => ids.reduce((a, id) => a + yearSum(id, y, 'Total'), 0);
-         const tiles = [
-            ['Кейс-менеджмент (повні кейси)', s('1.1a_c', '1.1a_a'), `закриті ${s('1.1a_c')} · активні ${s('1.1a_a')}`],
-            ['Отримали грошову допомогу (осіб)', s('1.2a_p', '1.3c_p'), `C4P ${s('1.2a_p')} · CLA ${s('1.3c_p')} · очікують ${s('1.2a_r', '1.3c_r')}`],
-            ['Юридична + психологічна підтримка', s('1.3a_c', '1.3a_a', '1.4a_c', '1.4a_a'), `юристи ${s('1.3a_c', '1.3a_a')} · психологи ${s('1.4a_c', '1.4a_a')}`],
-            ['Ремонти завершено (ДГ)', s('2.1a'), `осіб: завершено ${s('2.1c_f')} · в процесі ${s('2.1c_r')}`],
-         ];
-         $('kpis').innerHTML = tiles.map(([t, v, sub]) => `
-            <div class="bg-white rounded-xl shadow p-3 border-l-4" style="border-color: var(--caritas-blue)">
-               <div class="text-xs text-gray-500 font-semibold">${t} · ${y}</div>
-               <div class="text-2xl font-bold" style="color: var(--caritas-blue)">${v}</div>
-               <div class="text-xs text-gray-500">${sub}</div>
-            </div>`).join('');
+      function renderAll() {
+         renderTable();
+         renderYaryna();
+         renderCheck();
+         updateMeta();
+      }
+
+      function warnTotal() {
+         return Object.values(warnings).reduce((a, o) => a + Object.values(o).reduce((b, l) => b + new Set(l).size, 0), 0);
       }
 
       function updateMeta() {
          if (!lastLoad) return;
-         const w = Object.values(warnings).reduce((a, o) => a + Object.values(o).reduce((b, l) => b + l.length, 0), 0);
-         $('meta-line').textContent =
-            `Оновлено ${lastLoad.at.toLocaleString('uk-UA')} · ${info.households} анкет · ${info.persons} осіб · завантаження ${lastLoad.secs} с`;
-         const btn = $('btn-check');
-         btn.innerHTML = `🩺 Перевірка даних${(w || MISSING_COLS.length) ? ` <span class="bg-amber-500 text-white rounded-full px-2 text-xs">${MISSING_COLS.length ? '!' : w}</span>` : ''}`;
-         btn.classList.toggle('btn-warn', !!MISSING_COLS.length);
+         const t = lastLoad.at.toLocaleTimeString('uk-UA', { hour: '2-digit', minute: '2-digit' });
+         $('meta-line').innerHTML = `Оновлено о <b>${t}</b> · ${fmtInt(info.households)} анкет · ${fmtInt(info.persons)} осіб`;
+         $('status-dot').className = 'dot ok';
+         $('meta-line').parentElement.title = `Дані завантажено ${lastLoad.at.toLocaleString('uk-UA')} за ${lastLoad.secs} с`;
+
+         const issues = MISSING_COLS.length + (DATA2 ? 0 : 1) + (DATA3 ? 0 : 1) + (info.data3Missing?.length || 0);
+         const w = warnTotal();
+         const badge = $('check-badge');
+         badge.classList.toggle('hidden', !issues && !w);
+         badge.classList.toggle('bad', !!issues);
+         badge.textContent = issues ? '!' : fmtInt(w);
       }
 
       /* =====================================================================
          ВИДІЛЕННЯ ЯК У GOOGLE SHEETS
          ===================================================================== */
-      let grid = [];               // grid[r][c] = td
+      let grid = [];
       let selected = new Set();
       let anchor = null;
       let dragging = false;
-      let baseSel = null;          // для Ctrl/⌘ + перетягування
+      let baseSel = null;
 
       function buildGrid() {
          grid = [];
          document.querySelectorAll('#dashboard-body td.num').forEach(td => {
-            const r = +td.dataset.r, c = +td.dataset.c;
-            (grid[r] ??= [])[c] = td;
+            (grid[+td.dataset.r] ??= [])[+td.dataset.c] = td;
          });
       }
 
@@ -938,7 +1808,7 @@
             const td = e.target.closest('td.num');
             if (!td) return;
             e.preventDefault();
-            document.querySelectorAll('#dashboard-head th.selected-col').forEach(th => th.classList.remove('selected-col'));
+            head.querySelectorAll('th.selected-col').forEach(th => th.classList.remove('selected-col'));
             if (e.shiftKey && anchor) {
                applySelection(rect(anchor, td));
             } else if (e.ctrlKey || e.metaKey) {
@@ -964,7 +1834,6 @@
 
          document.addEventListener('mouseup', () => { dragging = false; });
 
-         // клік по місяцю — увесь стовпець; Shift — діапазон місяців
          let colAnchor = null;
          head.addEventListener('click', e => {
             const th = e.target.closest('th[data-c]');
@@ -980,7 +1849,6 @@
             applySelection(set);
          });
 
-         // подвійний клік — хто саме порахований
          body.addEventListener('dblclick', e => {
             const td = e.target.closest('td.num');
             if (td) showDrilldown(td);
@@ -996,15 +1864,9 @@
          });
       }
 
-      function parseCell(td) {
-         const t = td.textContent.trim().replace('%', '').replace(',', '.');
-         const n = parseFloat(t);
-         return isNaN(n) ? null : n;
-      }
-
       function updateStats() {
          const bar = $('sheets-statusbar');
-         const nums = [...selected].map(parseCell).filter(n => n !== null);
+         const nums = [...selected].map(td => toNumber(td.textContent)).filter(n => n !== null);
          if (!nums.length) { bar.style.opacity = '0'; return; }
          const sum = nums.reduce((a, b) => a + b, 0);
          const f = n => n.toLocaleString('uk-UA', { maximumFractionDigits: 2 });
@@ -1016,22 +1878,17 @@
          bar.style.opacity = '1';
       }
 
-      async function copySelection() {
+      function copySelection() {
          const cells = [...selected].sort((a, b) => (a.dataset.r - b.dataset.r) || (a.dataset.c - b.dataset.c));
          const rows = new Map();
-         cells.forEach(td => {
-            const r = +td.dataset.r;
-            if (!rows.has(r)) rows.set(r, []);
-            rows.get(r).push(td);
-         });
+         cells.forEach(td => { const r = +td.dataset.r; if (!rows.has(r)) rows.set(r, []); rows.get(r).push(td); });
          const minC = Math.min(...cells.map(td => +td.dataset.c));
          const tsv = [...rows.values()].map(list => {
             const line = [];
             list.forEach(td => { line[+td.dataset.c - minC] = td.textContent.trim(); });
             return Array.from(line, v => v ?? '').join('\t');
          }).join('\n');
-         try { await navigator.clipboard.writeText(tsv); toast(`📋 Скопійовано ${cells.length} клітинок`); }
-         catch { toast('Не вдалося скопіювати', 'bg-red-600'); }
+         copyText(tsv, `📋 Скопійовано ${cells.length} клітинок`);
       }
 
       /* =====================================================================
@@ -1042,10 +1899,9 @@
          const cat = td.dataset.cat;
          const c = +td.dataset.c;
          const monthLabel = c === 12 ? `увесь ${ui.year}` : `${MONTHS[c]} ${ui.year}`;
-         const ymList = c === 12 ? Array.from({ length: 12 }, (_, i) => `${ui.year}-${String(i + 1).padStart(2, '0')}`) : [`${ui.year}-${String(c + 1).padStart(2, '0')}`];
-
+         const ymList = c === 12 ? MONTHS.map((_, i) => ymOf(ui.year, i)) : [ymOf(ui.year, c)];
          const collect = id => ymList.flatMap(ym => report[id]?.[ym]?.[cat] || []);
-         let html = '';
+         let html;
          if (ind.pct) {
             const num = collect(ind.pct.num), den = ind.pct.den.flatMap(collect);
             html = `<p class="mb-3">Формула: <b>${num.length}</b> (перенаправлення) ÷ <b>${den.length}</b> (повні кейси CLOSED + ACTUAL) × 100 = <b>${fmtPct(num.length, den.length)}</b></p>` +
@@ -1056,75 +1912,27 @@
          openModal(`${esc(ind.name)}<div class="text-xs font-normal text-gray-500 mt-1">${esc(cat)} · ${monthLabel} · дата: ${esc(DATE_SOURCE[ind.id] || DATE_SOURCE[ind.pct?.num] || '')}</div>`, html);
       }
 
+      let DRILL_IDS = [];
       function personTable(list, title = '') {
          if (!list.length) return '<p class="text-gray-500">Нікого не пораховано.</p>';
          const g = { M: 'Чоловік', F: 'Жінка' };
-         const ids = [...new Set(list.map(p => p.id))];
+         DRILL_IDS = [...new Set(list.map(p => p.id))];
          const rows = list.map(p => `<tr class="border-b">
                <td class="py-1 pr-3 font-mono">${esc(p.id)}</td>
                <td class="py-1 pr-3">${p.isHoH ? '<b>Голова ДГ</b>' : 'член родини #' + p.idx}</td>
                <td class="py-1 pr-3">${g[p.gender] || '—'}</td>
                <td class="py-1 pr-3">${p.age ?? '—'}</td>
-               <td class="py-1 pr-3 text-xs text-gray-600">${[p.statusCat, p.pwd ? 'PwD' : '', p.ethnic ? 'етн. меншина' : ''].filter(Boolean).join(', ') || ''}</td>
+               <td class="py-1 pr-3 text-xs text-gray-600">${[p.statusCat, p.pwd ? 'PwD' : '', p.ethnic ? 'етн. меншина' : ''].filter(Boolean).join(', ')}</td>
             </tr>`).join('');
          return `<div class="flex items-center gap-3 mb-2">
-               <div>${title ? title + ': ' : ''}<b>${list.length}</b> осіб з <b>${ids.length}</b> анкет</div>
-               <button class="btn ml-auto" onclick="navigator.clipboard.writeText('${ids.map(i => String(i).replace(/'/g, '')).join('\\n')}').then(()=>toast('ID скопійовано'))">📋 Копіювати _id</button>
+               <div>${title ? title + ': ' : ''}<b>${list.length}</b> осіб з <b>${DRILL_IDS.length}</b> анкет</div>
+               <button class="btn ml-auto" onclick="copyText(DRILL_IDS.join('\\n'), 'ID скопійовано')">Копіювати _id</button>
             </div>
             <table class="w-full text-left"><thead><tr class="text-xs text-gray-500 border-b">
                <th class="py-1">_id</th><th>Хто</th><th>Стать</th><th>Вік</th><th>Ознаки</th></tr></thead>
             <tbody>${rows}</tbody></table>`;
       }
 
-      /* =====================================================================
-         ПЕРЕВІРКА ДАНИХ
-         ===================================================================== */
-      function showDiagnostics() {
-         let html = '';
-         if (MISSING_COLS.length) {
-            html += `<div class="bg-red-50 border border-red-200 rounded-lg p-3 mb-4">
-               <b class="text-red-700">Не знайдено колонок у DATA (${MISSING_COLS.length}):</b>
-               <ul class="list-disc ml-5 mt-1">${MISSING_COLS.map(c => `<li>${esc(c)}</li>`).join('')}</ul>
-               <div class="text-xs mt-2 text-gray-600">Перевір точну назву заголовка в таблиці (і в списку KEEP_COLUMNS у Code.gs, якщо оновлював скрипт). Відкрий <span class="font-mono">…/exec?columns=1</span>, щоб побачити всі назви.</div>
-            </div>`;
-         } else {
-            html += `<div class="bg-green-50 border border-green-200 rounded-lg p-3 mb-4 text-green-800">✅ Усі потрібні колонки знайдено.</div>`;
-         }
-
-         const ids = Object.keys(warnings);
-         if (!ids.length) {
-            html += `<p class="text-green-700 mb-4">✅ Усі записи, що відповідають умовам індикаторів, мають коректні дати.</p>`;
-         } else {
-            html += `<p class="mb-2 font-semibold">Записи, які відповідають умовам індикатора, але НЕ потрапили у звіт через дату:</p>`;
-            INDICATORS.filter(i => warnings[i.id]).forEach(ind => {
-               html += `<details class="mb-2 border rounded-lg p-2"><summary class="cursor-pointer"><b>${esc(ind.name)}</b>
-                  <span class="text-xs text-gray-500">— дата з «${esc(DATE_SOURCE[ind.id])}»</span></summary>`;
-               for (const reason in warnings[ind.id]) {
-                  const l = [...new Set(warnings[ind.id][reason])];
-                  html += `<div class="mt-2 ml-2"><span class="text-amber-700">${esc(reason)}</span> — ${l.length} анкет:
-                     <div class="font-mono text-xs text-gray-600 break-all">${l.slice(0, 200).map(esc).join(', ')}${l.length > 200 ? ' …' : ''}</div></div>`;
-               }
-               html += `</details>`;
-            });
-         }
-
-         if (info.familyMismatch.length) {
-            html += `<details class="mt-4 border rounded-lg p-2"><summary class="cursor-pointer">ℹ️ Анкети, де «Кількість членів домогосподарства» не збігається з «Члени родини»: <b>${info.familyMismatch.length}</b></summary>
-               <div class="font-mono text-xs text-gray-600 break-all mt-2">${info.familyMismatch.slice(0, 300).map(esc).join(', ')}</div>
-               <div class="text-xs text-gray-500 mt-1">Рахуємо так: голова ДГ + усі, хто розпізнаний у «Члени родини».</div></details>`;
-         }
-
-         html += `<div class="mt-4 text-xs text-gray-500">Налаштування: перенаправлення лише повних кейсів — <b>${CONFIG.REFERRALS_ONLY_FULL_CASES ? 'так' : 'ні'}</b>;
-            2.1.c ONGOING лише з позначкою ремонту — <b>${CONFIG.ONGOING_REPAIR_REQUIRES_MARK ? 'так' : 'ні'}</b>;
-            PwD лише голова ДГ — <b>${CONFIG.PWD_ONLY_HOH ? 'так' : 'ні'}</b>;
-            етнічна меншина на всю родину — <b>${CONFIG.ETHNIC_ALL_MEMBERS ? 'так' : 'ні'}</b>. Змінюються в CONFIG на початку скрипта.</div>`;
-
-         openModal('🩺 Перевірка даних', html);
-      }
-
-      /* =====================================================================
-         МОДАЛКА
-         ===================================================================== */
       function openModal(title, html) {
          $('modal-title').innerHTML = title;
          $('modal-body').innerHTML = html;
@@ -1133,7 +1941,295 @@
       function closeModal() { $('modal').classList.add('hidden'); }
 
       /* =====================================================================
-         КОПІЮВАННЯ ТАБЛИЦІ / EXCEL
+         ВКЛАДКА: ПЕРЕВІРКА ДАНИХ
+         ===================================================================== */
+      let CHECK_IDS = [];
+
+      function renderCheck() {
+         const tile = (state, title, text) => `<div class="card check-tile">
+               <div class="check-ico ${state}">${state === 'ok' ? '✓' : '!'}</div>
+               <div><div class="font-bold text-sm">${title}</div><div class="text-xs text-gray-600 mt-1">${text}</div></div>
+            </div>`;
+
+         const w = warnTotal();
+         let html = `<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-3 mb-4">
+            ${MISSING_COLS.length
+               ? tile('bad', 'Колонки DATA', `Не знайдено: ${MISSING_COLS.length}. Перевір назви заголовків.`)
+               : tile('ok', 'Колонки DATA', `Усі потрібні колонки знайдено · ${fmtInt(RECORDS.length)} анкет`)}
+            ${DATA2
+               ? tile('ok', 'Аркуш DATA_2', `Inclusion: ${['members', 'hh', 'rural'].map(k => esc(snapshotValue(k) || '—')).join(' · ')}`)
+               : tile('warn', 'Аркуш DATA_2', 'Не отримано — онови Code.gs (нова версія розгортання).')}
+            ${!DATA3
+               ? tile('warn', 'Аркуш DATA_3 (МЗК)', 'Не отримано — онови Code.gs (нова версія розгортання).')
+               : info.data3Missing.length
+                  ? tile('bad', 'Аркуш DATA_3 (МЗК)', `Не знайдено колонок: ${info.data3Missing.map(esc).join(', ')}`)
+                  : tile('ok', 'Аркуш DATA_3 (МЗК)', `${fmtInt(DATA3.length)} рядків`)}
+            ${w
+               ? tile('warn', 'Записи без дати', `${fmtInt(w)} записів відповідають умовам, але не потрапили у звіт`)
+               : tile('ok', 'Записи без дати', 'Усі записи мають коректні дати')}
+         </div>`;
+
+         if (MISSING_COLS.length) {
+            html += `<div class="card p-4 mb-4"><div class="font-bold mb-2 text-red-700">Не знайдено колонок у DATA</div>
+               <ul class="list-disc ml-5 text-sm">${MISSING_COLS.map(c => `<li>${esc(c)}</li>`).join('')}</ul>
+               <div class="text-xs mt-2 text-gray-600">Перевір точну назву заголовка в таблиці та список KEEP_COLUMNS у Code.gs. Відкрий <span class="font-mono">…/exec?columns=1</span>, щоб побачити всі назви.</div></div>`;
+         }
+
+         CHECK_IDS = [];
+         const rows = [];
+         INDICATORS.filter(i => warnings[i.id]).forEach(ind => {
+            for (const reason in warnings[ind.id]) {
+               const ids = [...new Set(warnings[ind.id][reason])];
+               const k = CHECK_IDS.push(ids) - 1;
+               rows.push(`<tr>
+                  <td><div class="font-semibold">${esc(ind.name)}</div><div class="text-xs text-gray-500 mt-1">дата з «${esc(DATE_SOURCE[ind.id] || '')}»</div></td>
+                  <td class="text-amber-700 whitespace-nowrap">${esc(reason)}</td>
+                  <td class="text-right font-bold tabular">${fmtInt(ids.length)}</td>
+                  <td><details><summary class="cursor-pointer text-sm" style="color:var(--blue)">Показати _id</summary>
+                     <div class="ids">${ids.slice(0, 300).map(esc).join(', ')}${ids.length > 300 ? ' …' : ''}</div>
+                     <button class="btn mt-2" data-copy-ids="${k}">Копіювати всі _id</button></details></td>
+               </tr>`);
+            }
+         });
+         html += `<div class="card mb-4"><div class="card-h"><h3>Записи, що не потрапили у звіт</h3><span class="muted">відповідають умовам індикатора, але немає коректної дати</span></div>
+            ${rows.length
+               ? `<div class="overflow-x-auto"><table class="wtable"><thead><tr><th>Індикатор</th><th>Причина</th><th class="text-right">Анкет</th><th style="width:34%"></th></tr></thead><tbody>${rows.join('')}</tbody></table></div>`
+               : '<div class="p-4 pt-2 text-sm text-green-700">✓ Таких записів немає.</div>'}</div>`;
+
+         if (info.familyMismatch?.length) {
+            const k = CHECK_IDS.push(info.familyMismatch) - 1;
+            html += `<div class="card p-4 mb-4"><div class="font-bold text-sm">Склад родини не збігається</div>
+               <div class="text-xs text-gray-600 mt-1">«Кількість членів домогосподарства» ≠ кількості людей у «Члени родини»: <b>${fmtInt(info.familyMismatch.length)}</b> анкет. Рахуємо: голова ДГ + усі розпізнані в «Члени родини».</div>
+               <details class="mt-2"><summary class="cursor-pointer text-sm" style="color:var(--blue)">Показати _id</summary>
+               <div class="ids">${info.familyMismatch.slice(0, 300).map(esc).join(', ')}</div>
+               <button class="btn mt-2" data-copy-ids="${k}">Копіювати всі _id</button></details></div>`;
+         }
+
+         const yn = v => v ? 'так' : 'ні';
+         html += `<div class="card p-4"><div class="font-bold text-sm mb-2">Правила підрахунку (CONFIG)</div>
+            <ul class="text-xs text-gray-600 space-y-1 list-disc ml-5">
+               <li>Referrals (incoming): будь-яка відповідь «З яких джерел Ви дізналися про Карітас?» або «Якщо Інше…» [case]; рахуємо ${CONFIG.INCOMING_REFERRAL_ALL_MEMBERS ? 'усіх членів родини' : 'голову ДГ'}.</li>
+               <li>1.1.d / 1.1.e лише для повних кейсів — <b>${yn(CONFIG.REFERRALS_ONLY_FULL_CASES)}</b>.</li>
+               <li>2.1.a / 2.1.c REGISTERED + ONGOING лише з позначкою ремонту (Прайс / АВР) — <b>${yn(CONFIG.ONGOING_REPAIR_REQUIRES_MARK)}</b>.</li>
+               <li>2.1.b — аркуш DATA_3, кожен рядок = 1 домогосподарство.</li>
+               <li>PwD лише голова ДГ — <b>${yn(CONFIG.PWD_ONLY_HOH)}</b>; етнічна меншина на всю родину — <b>${yn(CONFIG.ETHNIC_ALL_MEMBERS)}</b>.</li>
+            </ul></div>`;
+
+         $('check-body').innerHTML = html;
+      }
+
+      /* =====================================================================
+         ВКЛАДКА: ЗВІТ ЯРИНИ (DATA_2) — графіки
+         ===================================================================== */
+      const STATUS_COLORS = ['var(--s1)', 'var(--s2)', 'var(--s3)'];
+      const shortLabel = l => {
+         const n = norm(l);
+         if (n.includes('етнічних меншин')) return 'Етнічні меншини';
+         if (n.includes('одинока мати')) return 'Одинокі батьки / опікуни дітей до 18 років';
+         return String(l).replace(/\s*\(sum\)\s*/i, '').trim();
+      };
+
+      function yarynaModel() {
+         if (!DATA2) return null;
+         let end = data2InclusionStart();
+         if (end < 0) end = DATA2.length;
+         const rows = DATA2.slice(0, end);
+         while (rows.length && rows[rows.length - 1].every(isEmpty)) rows.pop();
+         if (!rows.length) return null;
+
+         // блоки "назва | SUM" у першому рядку (A:B, D:E …)
+         const head = rows[0];
+         const blocks = [];
+         for (let c = 0; c < head.length - 1; c++) {
+            if (!isEmpty(head[c]) && !isEmpty(head[c + 1]) && toNumber(head[c]) === null) { blocks.push({ lc: c, vc: c + 1, title: String(head[c]).trim() }); c++; }
+         }
+         if (!blocks.length) return null;
+
+         const model = { blocks, statuses: [], vulns: [], othersTotal: null, others: [], raw: [] };
+         let inOthers = false;
+         rows.slice(1).forEach(r => {
+            const label = blocks.map(b => r[b.lc]).find(x => !isEmpty(x));
+            if (isEmpty(label)) return;
+            const values = blocks.map(b => r[b.vc]);
+            model.raw.push({ label, values });
+            const n = norm(label);
+            const item = { label: String(label).trim(), short: shortLabel(label), nums: values.map(v => toNumber(v) ?? 0) };
+            if (values.every(isEmpty)) { inOthers = true; return; }                  // рядок-розділювач «⬇️ Інші ⬇️»
+            if (/\(sum\)/i.test(label)) { model.othersTotal = item; return; }       // «Інші (SUM)»
+            if (inOthers) { model.others.push(item); return; }
+            if (/переміщ|місцев|репатріант|транзит/.test(n)) model.statuses.push(item);
+            else model.vulns.push(item);
+         });
+         return model;
+      }
+
+      function svgArc(r, sw, color, cls, extra = '') {
+         return `<circle class="${cls}" cx="60" cy="60" r="${r}" fill="none" stroke="${color}" stroke-width="${sw}" stroke-dasharray="0 999" ${extra}/>`;
+      }
+
+      function gaugeCard(title, sub, valueStr) {
+         const v = toNumber(valueStr);
+         const r = 48, C = 2 * Math.PI * r;
+         const len = v === null ? 0 : Math.max(0, Math.min(100, v)) / 100 * C;
+         return `<div class="card gauge-card fade-in" data-tip="<b>${esc(title)}</b><br>${esc(sub)}: ${esc(valueStr || '—')}">
+            <div class="gauge">
+               <svg viewBox="0 0 120 120">
+                  <circle cx="60" cy="60" r="${r}" fill="none" stroke="var(--track)" stroke-width="12"/>
+                  ${svgArc(r, 12, 'var(--s1)', 'arc', `stroke-linecap="round" data-dash="${len.toFixed(2)} ${C.toFixed(2)}"`)}
+               </svg>
+               <div class="val tabular" ${v === null ? '' : `data-count="${v}" data-suffix="%" data-dec="${String(valueStr).includes(',') || String(valueStr).includes('.') ? 2 : 0}"`}>${v === null ? '—' : '0%'}</div>
+            </div>
+            <div>
+               <div class="text-xs font-semibold uppercase tracking-wide" style="color:var(--blue)">Inclusion</div>
+               <div class="font-bold text-sm mt-1 leading-snug">${esc(title)}</div>
+               <div class="text-xs text-gray-500 mt-1">${esc(sub)}</div>
+            </div>
+         </div>`;
+      }
+
+      function donutCard(m, g) {
+         const items = m.statuses.map((s, i) => ({ ...s, v: s.nums[g], color: STATUS_COLORS[i % 3] }));
+         const total = items.reduce((a, b) => a + b.v, 0);
+         const r = 46, C = 2 * Math.PI * r, gap = items.filter(x => x.v).length > 1 ? 1.2 : 0;
+         const share = v => total ? (v / total * 100).toFixed(1).replace('.', ',') : '0';
+         let acc = 0;
+         const segs = items.map((it, i) => {
+            const len = total ? it.v / total * C : 0;
+            const seg = svgArc(r, 22, it.color, 'seg', `data-i="${i}" data-dash="${Math.max(0, len - gap).toFixed(2)} ${C.toFixed(2)}" stroke-dashoffset="${(-acc).toFixed(2)}"
+               data-tip="<b>${esc(it.label)}</b><br>${fmtInt(it.v)} · ${share(it.v)}%"`);
+            acc += len;
+            return seg;
+         }).join('');
+         const legend = items.map((it, i) => `<div class="legend-row" data-i="${i}" data-tip="<b>${esc(it.label)}</b><br>${fmtInt(it.v)} · ${share(it.v)}%">
+               <span class="sw" style="background:${it.color}"></span>
+               <span>${esc(it.label)}</span>
+               <span class="v tabular" data-count="${it.v}">0</span>
+               <span class="p tabular">${total ? Math.round(it.v / total * 100) : 0}%</span>
+            </div>`).join('');
+         return `<div class="card fade-in h-full">
+            <div class="card-h"><h3>Статус</h3><span class="muted">${esc(m.blocks[g].title.toLowerCase())}</span></div>
+            <div class="donut-wrap">
+               <div class="donut" id="donut">
+                  <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="${r}" fill="none" stroke="var(--track)" stroke-width="22"/>${segs}</svg>
+                  <div class="center"><b class="tabular" data-count="${total}">0</b><span>усього</span></div>
+               </div>
+               <div class="legend">${legend}</div>
+            </div>
+         </div>`;
+      }
+
+      function barsCard(title, sub, items, g, sort = false) {
+         const list = items.map(it => ({ ...it, v: it.nums[g] }));
+         if (sort) list.sort((a, b) => b.v - a.v);
+         const max = Math.max(1, ...list.map(x => x.v));
+         const rows = list.map(it => `<div class="hbar ${it.v ? '' : 'zero'}" data-tip="<b>${esc(it.label)}</b><br>${fmtInt(it.v)}">
+               <div class="lbl">${esc(it.short)}</div>
+               <div class="trk"><div class="fill" data-w="${(it.v / max * 100).toFixed(1)}"></div></div>
+               <div class="val tabular" data-count="${it.v}">0</div>
+            </div>`).join('');
+         return `<div class="card fade-in h-full">
+            <div class="card-h"><h3>${esc(title)}</h3><span class="muted">${sub}</span></div>
+            <div class="hbars">${rows || '<div class="text-sm text-gray-500">Немає даних</div>'}</div>
+         </div>`;
+      }
+
+      function renderYaryna() {
+         const el = $('yaryna-body');
+         const m = yarynaModel();
+         if (!m) {
+            el.innerHTML = `<div class="card p-6 text-amber-800 bg-amber-50">Немає даних з аркуша <b>DATA_2</b>. Онови Code.gs і зроби «Керувати розгортаннями → ✏️ → Нова версія».</div>`;
+            return;
+         }
+         const g = Math.min(ui.yGroup, m.blocks.length - 1);
+         document.querySelectorAll('#y-group button').forEach((b, i) => {
+            b.classList.toggle('active', i === g);
+            b.classList.toggle('hidden', i >= m.blocks.length);
+            if (m.blocks[i]) b.textContent = m.blocks[i].title;
+         });
+         const unit = m.blocks[g].title.toLowerCase();
+
+         el.innerHTML = `
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-4">
+               ${gaugeCard('Учасники з інвалідністю', 'по всіх членах родини', snapshotValue('members'))}
+               ${gaugeCard('Учасники з інвалідністю', 'по домогосподарствах', snapshotValue('hh'))}
+               ${gaugeCard('Послуги мешканцям сільських громад', 'частка від усіх послуг', snapshotValue('rural'))}
+            </div>
+            <div class="grid grid-cols-1 xl:grid-cols-5 gap-4 mb-4">
+               <div class="xl:col-span-2">${donutCard(m, g)}</div>
+               <div class="xl:col-span-3">${barsCard('Вразливості', unit + ' · одна родина може мати кілька', m.vulns, g)}</div>
+            </div>
+            ${barsCard('Інші вразливості', (m.othersTotal ? `разом <b class="text-gray-700">${fmtInt(m.othersTotal.nums[g])}</b> · ` : '') + unit + ' · від більшого до меншого', m.others, g, true)}
+            <p class="help mt-3">Наведи на графік, щоб побачити точні значення. Дані — аркуш DATA_2, за весь час проєкту.</p>`;
+
+         animateIn(el);
+         initDonutHover();
+      }
+
+      // Анімації: дуги, смуги, лічильники
+      function animateIn(root) {
+         const run = () => {
+            root.querySelectorAll('[data-dash]').forEach(c => c.setAttribute('stroke-dasharray', c.dataset.dash));
+            root.querySelectorAll('.fill[data-w]').forEach((f, i) => { f.style.transitionDelay = (i * 35) + 'ms'; f.style.width = f.dataset.w + '%'; });
+            root.querySelectorAll('[data-count]').forEach(countUp);
+         };
+         if (REDUCED_MOTION) return run();
+         requestAnimationFrame(() => requestAnimationFrame(run));
+      }
+
+      function countUp(el) {
+         const target = parseFloat(el.dataset.count);
+         if (isNaN(target)) return;
+         const dec = +(el.dataset.dec || 0), suf = el.dataset.suffix || '';
+         const fmt = v => v.toLocaleString('uk-UA', { minimumFractionDigits: dec, maximumFractionDigits: dec }) + suf;
+         if (REDUCED_MOTION) { el.textContent = fmt(target); return; }
+         const t0 = performance.now(), dur = 900;
+         const step = t => {
+            const k = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - k, 3);
+            el.textContent = fmt(target * e);
+            if (k < 1) requestAnimationFrame(step);
+         };
+         requestAnimationFrame(step);
+      }
+
+      function initDonutHover() {
+         const donut = $('donut');
+         if (!donut) return;
+         const card = donut.closest('.card');
+         const set = i => {
+            donut.classList.toggle('hovering', i !== null);
+            card.querySelectorAll('.seg').forEach(s => s.classList.toggle('hot', s.dataset.i === String(i)));
+            card.querySelectorAll('.legend-row').forEach(s => s.classList.toggle('hot', s.dataset.i === String(i)));
+         };
+         card.addEventListener('mouseover', e => { const t = e.target.closest('[data-i]'); set(t ? t.dataset.i : null); });
+         card.addEventListener('mouseleave', () => set(null));
+      }
+
+      // Спливаюча підказка для елементів з data-tip
+      function initTooltip() {
+         const tip = $('tip');
+         document.addEventListener('mousemove', e => {
+            const t = e.target.closest?.('[data-tip]');
+            if (!t) { tip.style.opacity = '0'; return; }
+            tip.innerHTML = t.dataset.tip;
+            const x = Math.min(e.clientX + 14, window.innerWidth - tip.offsetWidth - 8);
+            const y = Math.min(e.clientY + 14, window.innerHeight - tip.offsetHeight - 8);
+            tip.style.left = x + 'px';
+            tip.style.top = y + 'px';
+            tip.style.opacity = '1';
+         });
+      }
+
+      function copyYaryna() {
+         const m = yarynaModel();
+         if (!m) return;
+         const lines = [['Показник', ...m.blocks.map(b => b.title)].join('\t')];
+         m.raw.forEach(it => lines.push([it.label, ...it.values.map(v => String(v ?? '').trim().replace(/[,.]00$/, ''))].join('\t')));
+         DATA2.filter(r => norm(r[0]).includes('inclusion')).forEach(r => lines.push([r[0], r[1]].join('\t')));
+         copyText(lines.join('\n'), '📋 Звіт скопійовано — встав у Excel');
+      }
+
+      /* =====================================================================
+         ЕКСПОРТ ITT
          ===================================================================== */
       function exportHtml() {
          const { head, body } = buildTable(true);
@@ -1141,11 +2237,11 @@
       }
 
       function exportTsv() {
-         const lines = [];
          const cols = ui.showTotal ? 13 : 12;
-         lines.push(['Indicators or Implementation Steps / Показники або етапи реалізації', 'Beneficiaries / Disaggregation', ...MONTHS, ...(ui.showTotal ? ['Разом ' + ui.year] : [])].join('\t'));
+         const lines = [['Indicators or Implementation Steps / Показники або етапи реалізації', 'Beneficiaries / Disaggregation', ...MONTHS, ...(ui.showTotal ? ['Разом ' + ui.year] : [])].join('\t')];
          visibleIndicators().forEach(ind => {
-            if (ind.comingSoon) { lines.push([ind.name, 'Total', 'Coming soon'].join('\t')); return; }
+            if (ind.snapshot) { lines.push([ind.name, 'Total', snapshotValue(ind.snapshot) || ''].join('\t')); return; }
+            if (ind.data3 && !DATA3) { lines.push([ind.name, 'Total', ''].join('\t')); return; }
             const cats = (ind.totalOnly || ui.compact) ? ['Total'] : CATS;
             cats.forEach((cat, i) => {
                const vals = [];
@@ -1165,7 +2261,6 @@
             })]);
             toast('📋 Таблицю скопійовано — встав у ITT.xlsx (Ctrl/⌘+V)');
          } catch {
-            // запасний варіант
             const tmp = document.createElement('div');
             tmp.style.position = 'fixed'; tmp.style.left = '-99999px';
             tmp.innerHTML = html;
@@ -1185,29 +2280,56 @@
             </x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--><\/head><body>${exportHtml()}<\/body><\/html>`;
          const blob = new Blob(['﻿' + doc], { type: 'application/vnd.ms-excel' });
          const a = document.createElement('a');
-         const stamp = new Date().toISOString().slice(0, 10);
          a.href = URL.createObjectURL(blob);
-         a.download = `ITT_${ui.year}${ui.location ? '_' + ui.location : ''}_${stamp}.xls`;
+         a.download = `ITT_${ui.year}${ui.location ? '_' + ui.location : ''}_${new Date().toISOString().slice(0, 10)}.xls`;
          a.click();
          setTimeout(() => URL.revokeObjectURL(a.href), 2000);
       }
 
       /* =====================================================================
+         ВКЛАДКИ
+         ===================================================================== */
+      function switchTab(name) {
+         ui.tab = name;
+         document.querySelectorAll('.tab-btn').forEach(x => x.classList.toggle('active', x.dataset.tab === name));
+         try { history.replaceState(null, '', '#' + name); } catch { }
+         if (!loadedOnce) return;
+         document.querySelectorAll('.tab-pane').forEach(p => p.classList.toggle('hidden', p.id !== 'tab-' + name));
+         clearSelection();
+         if (name === 'yaryna') renderYaryna();   // щоразу — з анімацією
+      }
+
+      /* =====================================================================
          ПОДІЇ
          ===================================================================== */
-      $('year-select').addEventListener('change', e => { ui.year = +e.target.value; render(); });
-      $('location-select').addEventListener('change', e => { ui.location = e.target.value; processAll(); setupFilters(); render(); updateMeta(); });
-      $('search').addEventListener('input', e => { ui.search = e.target.value; render(); });
-      $('opt-total').addEventListener('change', e => { ui.showTotal = e.target.checked; render(); });
-      $('opt-compact').addEventListener('change', e => { ui.compact = e.target.checked; render(); });
+      $('year-select').addEventListener('change', e => { ui.year = +e.target.value; renderTable(); });
+      $('location-select').addEventListener('change', e => { ui.location = e.target.value; processAll(); setupFilters(); renderAll(); });
+      $('search').addEventListener('input', e => { ui.search = e.target.value; renderTable(); });
+      $('opt-total').addEventListener('change', e => { ui.showTotal = e.target.checked; renderTable(); });
+      $('opt-compact').addEventListener('change', e => { ui.compact = e.target.checked; renderTable(); });
       $('btn-refresh').addEventListener('click', fetchData);
       $('btn-copy').addEventListener('click', copyTable);
       $('btn-xls').addEventListener('click', downloadXls);
-      $('btn-check').addEventListener('click', showDiagnostics);
+      $('btn-copy-y').addEventListener('click', copyYaryna);
       $('modal-close').addEventListener('click', closeModal);
       $('modal').addEventListener('click', e => { if (e.target.id === 'modal') closeModal(); });
+      document.querySelectorAll('.tab-btn').forEach(b => b.addEventListener('click', () => switchTab(b.dataset.tab)));
+      $('y-group').addEventListener('click', e => {
+         const b = e.target.closest('button[data-g]');
+         if (!b) return;
+         ui.yGroup = +b.dataset.g;
+         renderYaryna();
+      });
+      $('check-body').addEventListener('click', e => {
+         const b = e.target.closest('[data-copy-ids]');
+         if (b) copyText(CHECK_IDS[+b.dataset.copyIds].join('\n'), 'ID скопійовано');
+      });
 
+      const startTab = (location.hash || '').slice(1);
+      if (['itt', 'yaryna', 'check'].includes(startTab)) ui.tab = startTab;
+      switchTab(ui.tab);
       initTableInteractions();
+      initTooltip();
       fetchData();
    </script>
 </body>
